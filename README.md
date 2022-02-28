@@ -1,2 +1,2 @@
-# yllgamechatsdk
-yllgamechatsdk 
+# YllGameChatSDK
+语聊接入文档
