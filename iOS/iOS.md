@@ -44,9 +44,10 @@ SDK下载地址(请联系对接人获取)
 - 权限的具体描述请根据游戏的实际使用进行定义，如果游戏没有使用，可以向SDK方要通用的阿语描述
 
 ### 2.4 SDK后台播放功能设置
-![配置](img/Signing&Capabilities.jpg)
+![配置](Signing&Capabilities1.jpg)
 
 ### 2.5 SDK录屏直播功能设置
+![配置](Signing&Capabilities2.jpg)
 
 ## 3. SDK初始化与API接口
 
