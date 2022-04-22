@@ -46,6 +46,7 @@ SDK下载地址(请联系对接人获取)
 ### 2.4 SDK后台播放功能设置
 ![配置](img/Signing&Capabilities.jpg)
 
+### 2.5 SDK录屏直播功能设置
 
 ## 3. SDK初始化与API接口
 
