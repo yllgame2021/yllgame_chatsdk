@@ -97,10 +97,10 @@ plugins {
         }
     }
  ```
- ### 2.1初始化、进房
+ ### 2.1登陆房间
  ``` kotlin
     /**
-     * 初始化项目、进房
+     * 登陆房间
      * @param application 当前Application
      * @param webSocketUrl WebSocket服务器地址 String
      * @param configEntity SDK初始化配置ConfigEntity
@@ -122,8 +122,6 @@ plugins {
         const val CONNECTED = 2
         const val DISCONNECTED = -1
         const val WAITINGRECONNECT = -2
-    //发送图片消息通知
-    fun notifySayImage(notifySayImage: YGChatNotifySayImageEntity)
     //通知用户进出房间
     fun notifyUserLog(userLogEntity: YGChatNotifyRoomUserLogEntity)
     //通知用户上麦
@@ -132,11 +130,11 @@ plugins {
     fun notifyUserInviteMicUp(inviteUpEntity: YGChatNotifyRoomMicInviteUpEntity)
     //通知用户下麦
     fun notifyUserMicDown(micDownEntity: YGChatNotifyRoomMicDownEntity)
-    //通知用户被提下麦
+    //通知被踢下麦用户 你已被踢下麦
     fun notifyUserKickMic(userMicKickEntity: YGChatNotifyRoomUserMicKickEntity)
-    //通知用户锁麦
+    //通知锁麦消息
     fun notifyUserMicLocked(micLockedEntity: YGChatNotifyRoomMicLockedEntity)
-    //通知用户解锁麦
+    //通知解麦消息
     fun notifyUserMicUnLocked(micUnLockedEntity: YGChatNotifyRoomMicUnLockedEntity)
     //通知用户禁言/解除禁言
     fun notifyRoomUserSilence(silenceEntity: YGChatNotifyRoomUserSilenceEntity)
@@ -146,9 +144,9 @@ plugins {
     fun notifyRoomManagerDown(managerDownEntity: YGChatNotifyRoomManagerDownEntity)
     //通知升级房间管理员
     fun notifyRoomMemberUp(memberUpEntity: YGChatNotifyRoomMemberUpEntity)
-    //房间封禁
+    //通知用户已被房间封禁
     fun notifyRoomUserBan(userBannedEntity: YGChatNotifyRoomUserBannedEntity)
-    //房间广播
+    //系统广播
     fun notifySystemBroadcast(systemBroadcastEntity: YGChatNotifySystemBroadcastEntity)
     //管理后台封禁用户
     fun notifyRoomSystemUserBan(systemUserBanEntity: YGChatNotifySystemUserBanEntity)
@@ -158,6 +156,8 @@ plugins {
     fun notifySaySticker(messageEntity: YGChatNotifyRoomStickerEntity)
     //通知收到礼物
     fun sendGift(sendGiftEntity: YGChatNotifySendGiftEntity)
+    //发送图片消息通知
+    fun notifySayImage(notifySayImage: YGChatNotifySayImageEntity)
     //房间信息改变
     fun notifyRoomInfoChange(changeEntity: YGChatNofityRoomInfoChangeEntity)
     //麦位声波指示器
