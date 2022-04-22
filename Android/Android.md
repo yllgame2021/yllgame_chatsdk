@@ -585,7 +585,7 @@ plugins {
     fun muteAllRemoteAudio(audioMuted: Boolean)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.muteAllRemoteAudio(); ```
-  ### 2.36 音乐播放器弹窗
+  ### 2.36 房间背景音乐
   ``` kotlin
    /**
      * 音乐播放器
