@@ -55,16 +55,11 @@ SDK下载地址(请联系对接人获取)
 ### 3.2 登陆房间
 ```obj-c
 /// 登录房间操作
-/// @param userId 用户id
-/// @param roomId 房间id
-/// @param agoraAppId 声网id
-/// @param token 认证token
-/// @param password 房间密码
-/// @param languageType 语言类型
-/// @param webSocketURL scoket url
+/// @param webSocketURL socket 地址
+/// @param config 房间配置项
 /// @param delegate 代理协议 (YllGameChatDelegate)
 /// @param completionHandler 操作结果回调
-[YllGameChatSDK getInstance] ygc_loginWithUserId:<#(int64_t)#> roomId:<#(int64_t)#> agoraAppId:<#(nonnull NSString *)#> token:<#(nonnull NSString *)#> password:<#(nonnull NSString *)#> languageType:<#(YGC_LANGUAGE_TYPE)#> webSocketURL:<#(nonnull NSString *)#> delegate:<#(nonnull id)#> completionHandler:<#^(YGC_CHAT_STATE state, YGChatModel * _Nullable model, int32_t socketErrorCode)completionHandler#>
+[[YllGameChatSDK getInstance] ygc_loginWithWebSocketURL:<#(nonnull NSString *)#> config:<#(YllGameChatConfig * _Nonnull)#> delegate:<#(nonnull id)#> completionHandler:<#^(YGC_CHAT_STATE state, YGChatLogInResModel * _Nullable model, int32_t errorCode)completionHandler#>];
 ```
 
 - 遵循代理 YllGameChatDelegate，实现代理方法
@@ -411,5 +406,12 @@ SDK下载地址(请联系对接人获取)
 /// 获取当前聊天室信息
 /// @param completionHandler 操作结果回调
 [[YllGameChatSDK getInstance] ygc_getCurrentRoomInfoWithCompletionHandler:<#^(YGChatRoomViewModel * _Nullable model)completionHandler#>];
+```
+
+### 3.39 展示聊天室音乐列表
+```obj-c
+/// 展示聊天室音乐列表
+/// @param completionHandler 操作结果回调
+[[YllGameChatSDK getInstance] ygc_showMusciViewWithCompletionHandler:<#^(YGC_CHAT_STATE state)completionHandler#>];
 ```
 
