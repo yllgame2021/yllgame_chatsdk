@@ -47,7 +47,15 @@ SDK下载地址(请联系对接人获取)
 ![配置](Signing&Capabilities1.jpg)
 
 ### 2.5 SDK录屏直播功能设置
+- App Groups 配置账号由SDK方提供
+- 
+#### 2.5.1 配置Capabilities
 ![配置](Signing&Capabilities2.jpg)
+
+#### 2.5.2 新建Target
+- 点击Editor -> Add Target -> Boradcast Upload Extension
+![配置](Boradcast Upload Extension.jpg)
+
 
 ## 3. SDK初始化与API接口
 
@@ -119,6 +127,11 @@ SDK下载地址(请联系对接人获取)
 - (void)ygc_audioErrorWithErrorCode:(AgoraErrorCode)errorCode;
 /// socket 状态更改
 - (void)ygc_onConnectionChange:(YGC_SOCKET_STATE)state;
+/// 录屏回调
+- (void)ygc_broadcastFinishedWithReason:(YGC_REPLAY_REASON)reason;
+/// 发生错误回调, 该函数的主要目的是为了App可以根据errorCode的值做一些对应的可视化的提示
+/// 比如启动通话失败时，会上报 CODE_AGORAStartCall = 1002 错误。App可以提示用户启动通话失败。
+- (void)ygc_audioErrorWithErrorCode:(AgoraErrorCode)errorCode;
 ```
 
 ### 3.3 退出房间
@@ -416,10 +429,10 @@ SDK下载地址(请联系对接人获取)
 [[YllGameChatSDK getInstance] ygc_getCurrentRoomInfoWithCompletionHandler:<#^(YGChatRoomViewModel * _Nullable model)completionHandler#>];
 ```
 
-### 3.39 展示聊天室音乐列表
+### 3.39 展示房间背景音乐
 ```obj-c
-/// 展示聊天室音乐列表
+/// 展示房间背景音乐
 /// @param completionHandler 操作结果回调
 [[YllGameChatSDK getInstance] ygc_showMusciViewWithCompletionHandler:<#^(YGC_CHAT_STATE state)completionHandler#>];
 ```
-
+### 3.40 
