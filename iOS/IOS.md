@@ -24,7 +24,7 @@ SDK下载地址(请联系对接人获取)
 
 #### 2. 在podfile文件中添加以下依赖库
 ```obj-c
-  pod 'AgoraAudio_iOS', '~> 3.5.0.3'
+  pod 'AgoraRtcEngine_iOS', :subspecs => ['RtcBasic', 'ReplayKit']
   pod 'SwiftProtobuf', '~> 1.17.0'
 ```
 
@@ -33,8 +33,14 @@ SDK下载地址(请联系对接人获取)
 - 然后执行 pod install
 
 ### 2.3 SDK所需权限设置
-- 麦克风权限 Privacy - Microphone Usage Description
-- IDFA权限 Privacy - Tracking Usage Description
+- Privacy - Microphone Usage Description 麦克风权限
+- Privacy - Tracking Usage Description IDFA权限 
+- Privacy - Location Always and When In Use Usage Description 地理位置权限
+- Privacy - Location Always Usage Description 地理位置权限
+- Privacy - Location Usage Description 地理位置权限
+- Privacy - Location When In Use Usage Description 地理位置权限
+- Privacy - Media Library Usage Description  播放音乐视频权限 
+- Privacy - Camera Usage Description 相机权限
 - 权限的具体描述请根据游戏的实际使用进行定义，如果游戏没有使用，可以向SDK方要通用的阿语描述
 
 ### 2.4 SDK后台播放功能设置
