@@ -472,7 +472,7 @@ plugins {
     fun unlockRoomPwd(ygChatCallback: YGChatCallback<Unit>)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.unlockRoomPwd(); ```
-   ### 2.27购买密码房
+ ### 2.27购买密码房
  ``` kotlin
     /**
      * 购买密码房
@@ -536,7 +536,7 @@ plugins {
     fun roomLockPrice(ygChatCallback: YGChatCallback<Int>)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.roomLockPrice(); ```
-   ### 2.32获取房间等级配置
+  ### 2.32获取房间等级配置
  ``` kotlin
     /**
      * 获取房间等级配置
@@ -545,8 +545,7 @@ plugins {
     fun roomNextLevelConfig(ygChatCallback: YGChatCallback<YGChatRoomLevelEntity>)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.roomNextLevelConfig(); ```
-## 本地语音相关
-   ### 自己麦克风禁麦
+  ### 2.33自己麦克风禁麦
  ``` kotlin
     /**
      *自己麦克风禁麦
@@ -556,7 +555,7 @@ plugins {
     fun muteLocalMic(micMuted: Boolean)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.muteLocalMic(); ```
-     ### 静音某个麦
+ ### 2.34静音某个麦
  ``` kotlin
     /**
      * 静音某个麦
@@ -567,7 +566,7 @@ plugins {
     fun muteRemoteAudio(uid: Long, audioMuted: Boolean)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.muteRemoteAudio(); ```
-      ### 静音全部麦
+ ### 2.35静音全部麦
   ``` kotlin
     /**
      * 静音全部麦
@@ -577,3 +576,22 @@ plugins {
     fun muteAllRemoteAudio(audioMuted: Boolean)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.muteAllRemoteAudio(); ```
+  ### 2.36 音乐播放器弹窗
+  ``` kotlin
+   /**
+     * 音乐播放器
+     * @param context Context
+     */
+    fun showMusicPlayerDialog(context: Context)
+ ```
+ - 示例：``` YllGameChatSdk.INSTANCE.showMusicPlayerDialog(); ```
+  ### 2.37 发送图片消息
+  ``` kotlin
+   /**
+     * 发送图片消息
+     * @param imageUrl String 图片Url
+     * @param ygChatCallback YGChatCallback<YGChatSendImageEntity> 图片消息回调
+     */
+    fun sayImage(imageUrl: String, ygChatCallback: YGChatCallback<YGChatSendImageEntity>) 
+ ```
+ - 示例：``` YllGameChatSdk.INSTANCE.sayImage(); ```
