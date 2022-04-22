@@ -588,7 +588,7 @@ plugins {
   ### 2.36 房间背景音乐
   ``` kotlin
    /**
-     * 音乐播放器
+     * 房间背景音乐
      * @param context Context
      */
     fun showMusicPlayerDialog(context: Context)
