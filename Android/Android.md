@@ -602,3 +602,31 @@ plugins {
     fun sayImage(imageUrl: String, ygChatCallback: YGChatCallback<YGChatSendImageEntity>) 
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.sayImage(); ```
+### 2.38 开播
+  ``` kotlin
+    /**
+     * 开启录屏
+     * @param ygChatCallback YGChatCallback<Boolean>
+     */
+    fun roomOpenLive(ygChatCallback: YGChatCallback<Unit>)
+ ```
+ - 示例：``` YllGameChatSdk.INSTANCE.roomOpenLive(); ```
+### 2.39 关播
+  ``` kotlin
+    /**
+     * 关闭录屏
+     * @param ygChatCallback YGChatCallback<Boolean>
+     */
+    fun roomCloseLive(ygChatCallback: YGChatCallback<Unit>)
+ ```
+ - 示例：``` YllGameChatSdk.INSTANCE.roomCloseLive(); ```
+### 2.40 关播
+  ``` kotlin
+    /**
+     * 观看直播
+     * @return Int
+     */
+    fun roomPlayLive(activity: Activity): Int
+ ```
+ - 示例：``` YllGameChatSdk.INSTANCE.roomPlayLive(); ```
+
