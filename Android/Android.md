@@ -195,7 +195,7 @@ plugins {
     fun logoutRoom(ygChatCallback: YGChatCallback<Unit>)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.logoutRoom(); ```
-   ### 2.3加载房间在线用户列表
+ ### 2.3加载房间在线用户列表
  ``` kotlin
     /**
      * 加载房间在线用户列表
