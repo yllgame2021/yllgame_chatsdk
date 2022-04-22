@@ -124,7 +124,8 @@ plugins {
         const val CONNECTED = 2
         const val DISCONNECTED = -1
         const val WAITINGRECONNECT = -2
-        
+    //发送图片消息通知
+    fun notifySayImage(notifySayImage: YGChatNotifySayImageEntity)
     //通知用户进出房间
     fun notifyUserLog(userLogEntity: YGChatNotifyRoomUserLogEntity)
     //通知用户上麦
