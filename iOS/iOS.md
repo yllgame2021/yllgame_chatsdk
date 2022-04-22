@@ -428,10 +428,61 @@ SDK下载地址(请联系对接人获取)
 [[YllGameChatSDK getInstance] ygc_getCurrentRoomInfoWithCompletionHandler:<#^(YGChatRoomViewModel * _Nullable model)completionHandler#>];
 ```
 
-### 3.39 展示房间背景音乐
+### 3.39 房间背景音乐
 ```obj-c
 /// 展示房间背景音乐
 /// @param completionHandler 操作结果回调
-[[YllGameChatSDK getInstance] ygc_showMusciViewWithCompletionHandler:<#^(YGC_CHAT_STATE state)completionHandler#>];
+[[YllGameChatSDK getInstance] ygc_showMusciPlayerWithCompletionHandler:<#^(YGC_CHAT_STATE state)completionHandler#>];
 ```
-### 3.40 
+
+### 3.40 发送图片消息
+```obj-c
+/// 发送图片消息
+/// @param imageUrl 图片url地址
+/// @param completionHandler 操作结果回调
+[[YllGameChatSDK getInstance] ygc_sayImageWithImageUrl:<#(nonnull NSString *)#> completionHandler:<#^(YGC_CHAT_STATE state, YGChatSayImageResModel * _Nullable model, int32_t errorCode)completionHandler#>];
+```
+
+### 3.41 直播主进程操作
+#### 3.41.1 开始/关闭直播
+```obj-c
+/// 开始/关闭直播
+/// @param broadcastName 创建的broadcat upload Extension 的名字
+/// @param completionHandler 操作结果回调
+[[YllGameChatSDK getInstance] ygc_roomOpenLiveWithBroadcastName:<#(nonnull NSString *)#> completionHandler:<#^(YGC_CHAT_STATE state, int32_t errorCode)completionHandler#>];
+```
+
+#### 3.41.2 观看直播
+```obj-c
+/// @param completionHandler 操作结果回调
+[[YllGameChatSDK getInstance] ygc_roomPlayLiveWithCompletionHandler:<#^(YGC_CHAT_STATE state, int32_t errorCode)completionHandler#>];
+```
+### 3.42 录屏直播 Extesion 进程操作
+#### 3.42.1 开始广播
+```obj-c
+/// 开始广播
+/// @param delegate 代理协议 (YllGameChatDelegate)
+/// 注: 只在Extension SampleHandler 里面调用
+[[YllGameChatSDK getInstance] ygc_startBroadcastWithDelegate:<#(nonnull id)#>];
+```
+
+#### 3.42.2 暂停广播
+```obj-c
+/// 暂停广播
+/// 注: 只在Extension SampleHandler 里面调用
+[[YllGameChatSDK getInstance] ygc_pausedBroadcast];
+```
+
+#### 3.42.3 继续广播
+```obj-c
+/// 继续广播
+/// 注: 只在Extension SampleHandler 里面调用
+[[YllGameChatSDK getInstance] ygc_resumedBroadcast];
+```
+
+#### 3.42.4 停止广播
+```obj-c
+/// 停止广播
+/// 注: 只在Extension SampleHandler 里面调用
+[[YllGameChatSDK getInstance] ygc_finishedBroadcast];
+```
