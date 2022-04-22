@@ -165,6 +165,16 @@ plugins {
         audioChatVolumes: List<AudioChatVolume>,
         totalVolume: Int
     )
+    
+    //开启录屏通知
+    fun notifyRoomOpenLive(openLiveUserEntity: YGChatNotifyRoomOpenLiveEntity)
+
+    //关闭录屏通知
+    fun notifyRoomCloseLive(closeLiveUserEntity: YGChatNotifyRoomCloseLiveEntity)
+
+    //agora错误
+    fun audioError(errorCode: Int)
+    
      /**
      * 播放状态
      * @param playerState PlayerState
