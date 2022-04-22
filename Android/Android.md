@@ -620,7 +620,7 @@ plugins {
     fun roomCloseLive(ygChatCallback: YGChatCallback<Unit>)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.roomCloseLive(); ```
-### 2.40 关播
+### 2.40 观看直播
   ``` kotlin
     /**
      * 观看直播
