@@ -167,6 +167,15 @@ plugins {
         audioChatVolumes: List<AudioChatVolume>,
         totalVolume: Int
     )
+     /**
+     * 播放状态
+     * @param playerState PlayerState
+     * @see MusicPlayerCommand.PlayerState.STATE_PLAYING 播放中
+     * @see MusicPlayerCommand.PlayerState.STATE_PAUSED 暂停
+     * @see MusicPlayerCommand.PlayerState.STATE_STOPPED 停止
+     * @see MusicPlayerCommand.PlayerState.STATE_ERROR 错误
+     */
+    fun onPlayerState(playerState: MusicPlayerCommand.PlayerState)
  ```
   - 示例：``` YllGameChatSdk.INSTANCE.loginRoom(); ```
   ### 2.2登出房间
