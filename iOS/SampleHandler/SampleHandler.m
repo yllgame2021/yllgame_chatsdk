@@ -18,7 +18,7 @@
 
 - (void)broadcastStartedWithSetupInfo:(NSDictionary<NSString *,NSObject *> *)setupInfo {
     // User has requested to start the broadcast. Setup info from the UI extension can be supplied but optional.
-    [[YllGameChatSDK getInstance] ygc_startBroadcast:self];
+    [[YllGameChatSDK getInstance] ygc_startBroadcastWithDelegate:self];
 }
 
 - (void)broadcastPaused {
@@ -37,7 +37,7 @@
 }
 
 - (void)processSampleBuffer:(CMSampleBufferRef)sampleBuffer withType:(RPSampleBufferType)sampleBufferType {
-    [[YllGameChatSDK getInstance] ygc_sendBuffer:sampleBuffer bufferType:sampleBufferType];
+    [[YllGameChatSDK getInstance] ygc_sendBufferWithBuffer:sampleBuffer bufferType:sampleBufferType];
 }
 
 - (void)ygc_broadcastFinishedWithReason:(YGC_REPLAY_REASON)reason {
