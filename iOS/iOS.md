@@ -44,20 +44,20 @@ SDK下载地址(请联系对接人获取)
 - 权限的具体描述请根据游戏的实际使用进行定义，如果游戏没有使用，可以向SDK方要通用的阿语描述
 
 ### 2.4 SDK后台播放功能设置
-![配置](Signing&Capabilities1.jpg)
+![配置](img/Signing&Capabilities1.jpg)
 
 ### 2.5 SDK录屏直播功能设置
 - App Groups 配置账号由SDK方提供
 
 #### 2.5.1 配置Capabilities
-![配置](Signing&Capabilities2.jpg)
+![配置](img/Signing&Capabilities2.jpg)
 
 #### 2.5.2 新建Target
 - 点击Editor -> Add Target -> Boradcast Upload Extension
-![配置](BoradcastUploadExtension.jpg)
+![配置](img/BoradcastUploadExtension.jpg)
 
-#### 2.5.3 添加录屏直播功能
-
+#### 2.5.3 添加录屏直播功能相关代码([示例文件](https://github.com/yllgame2021/yllgame_chatsdk/tree/main/iOS/SampleHandler))
+![配置](img/SampleHandler.jpg)
 
 ## 3. SDK初始化与API接口
 
@@ -131,9 +131,6 @@ SDK下载地址(请联系对接人获取)
 - (void)ygc_onConnectionChange:(YGC_SOCKET_STATE)state;
 /// 录屏回调
 - (void)ygc_broadcastFinishedWithReason:(YGC_REPLAY_REASON)reason;
-/// 发生错误回调, 该函数的主要目的是为了App可以根据errorCode的值做一些对应的可视化的提示
-/// 比如启动通话失败时，会上报 CODE_AGORAStartCall = 1002 错误。App可以提示用户启动通话失败。
-- (void)ygc_audioErrorWithErrorCode:(AgoraErrorCode)errorCode;
 ```
 
 ### 3.3 退出房间
