@@ -48,13 +48,15 @@ SDK下载地址(请联系对接人获取)
 
 ### 2.5 SDK录屏直播功能设置
 - App Groups 配置账号由SDK方提供
-- 
+
 #### 2.5.1 配置Capabilities
 ![配置](Signing&Capabilities2.jpg)
 
 #### 2.5.2 新建Target
 - 点击Editor -> Add Target -> Boradcast Upload Extension
-![配置](Boradcast Upload Extension.jpg)
+![配置](BoradcastUploadExtension.jpg)
+
+#### 2.5.3 添加录屏直播功能
 
 
 ## 3. SDK初始化与API接口
