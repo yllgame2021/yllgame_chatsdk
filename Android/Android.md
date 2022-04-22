@@ -11,12 +11,12 @@
 首先把AAR包复制到项目的lib目录下，然后在主项目APP下build.gradle 中的dependencies加入
  ``` Groovy
  //SDK基础库
- implementation(name: 'YllGameChat_lib_1.0.0', ext: 'aar')
+ implementation(name: 'YllGameChat_lib_1.0.1', ext: 'aar')
  implementation 'androidx.appcompat:appcompat:1.2.0'
  //androidx
  implementation 'androidx.core:core-ktx:1.6.0'
  implementation 'androidx.appcompat:appcompat:1.2.0'
- implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+ implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
  implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
  implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
  implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
@@ -63,9 +63,7 @@
   ``` Groovy
 plugins {
     id 'kotlin-android'
-    id 'com.google.protobuf'
     id 'io.michaelrocks.paranoid'
-    id 'kotlin-android-extensions'
 }
  ```
  ## 2.接入SDK
