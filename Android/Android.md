@@ -12,25 +12,41 @@
  ``` Groovy
  //SDK基础库
  implementation(name: 'YllGameChat_lib_1.0.0', ext: 'aar')
- implementation 'androidx.appcompat:appcompat:1.4.0'
- implementation 'com.google.android.material:material:1.4.0'
+ implementation 'androidx.appcompat:appcompat:1.2.0'
+ //androidx
+ implementation 'androidx.core:core-ktx:1.6.0'
+ implementation 'androidx.appcompat:appcompat:1.2.0'
+ implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+ implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+ implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+ implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+ implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+ //material
+ implementation 'com.google.android.material:material:1.3.0-alpha03'
  //Protobuf插件
- api 'com.googlecode.protobuf-java-format:protobuf-java-format:1.4'
- api 'com.google.protobuf:protobuf-java:3.17.1'
- api 'com.google.protobuf:protobuf-java-util:3.17.1'
+ //Protobuf插件
+ implementation 'com.googlecode.protobuf-java-format:protobuf-java-format:1.4'
+ implementation 'com.google.protobuf:protobuf-java:3.17.1'
+ implementation 'com.google.protobuf:protobuf-java-util:3.17.1'
  //Java注解库
- api "javax.annotation:javax.annotation-api:1.2"
+ implementation "javax.annotation:javax.annotation-api:1.2"
  //Kotlin基础库
- api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0"
- api 'androidx.core:core-ktx:1.6.0'
- api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
+ implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.31"
+ implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
  //OkHttp
- api 'com.squareup.okhttp3:okhttp:4.9.0'
- api 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+ implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+ implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
  //Gson
- api 'com.google.code.gson:gson:2.8.9'
+ implementation 'com.google.code.gson:gson:2.8.9'
  //声网
- api 'io.agora.rtc:voice-sdk:3.5.2'
+ implementation 'io.agora.rtc:full-sdk:3.7.0'
+ implementation 'io.agora.rtc:full-screen-sharing:3.7.0'
+ //Room引入
+ implementation 'androidx.room:room-runtime:2.2.5'
+ annotationProcessor "androidx.room:room-compiler:2.2.5"
+ implementation "androidx.room:room-ktx:2.2.5"
+ //liveDataBus
+ implementation 'com.jeremyliao:live-event-bus-x:1.6.0'
  ```
  
  ### 1.2设置项目的libs文件目录
@@ -49,6 +65,7 @@ plugins {
     id 'kotlin-android'
     id 'com.google.protobuf'
     id 'io.michaelrocks.paranoid'
+    id 'kotlin-android-extensions'
 }
  ```
  ## 2.接入SDK
