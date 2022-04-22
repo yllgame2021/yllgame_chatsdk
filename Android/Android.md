@@ -444,7 +444,7 @@ plugins {
     fun roomUserBanList(page: Int, ygChatCallback: YGChatCallback<YGChatRoomUserBanListEntity>)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.roomUserBanList(); ```
- ### 2.23获取房间管理列表
+ ### 2.23 房间管理员列表
  ``` kotlin
     /**
      * 获取房间管理列表
@@ -544,16 +544,7 @@ plugins {
     fun sendDiamondGift(toId: Long, giftId: Long, number: Int, ygChatCallback: YGChatCallback<Unit>)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.sendDiamondGift(); ```
-  ### 2.31获取房间锁价格
- ``` kotlin
-    /**
-     * 获取房间锁价格
-     * @param ygChatCallback YGChatCallback<Int> 回调 成功返回价格 失败返回当前错误码
-     */
-    fun roomLockPrice(ygChatCallback: YGChatCallback<Int>)
- ```
- - 示例：``` YllGameChatSdk.INSTANCE.roomLockPrice(); ```
-  ### 2.32获取房间等级配置
+ ### 2.31获取房间等级配置
  ``` kotlin
     /**
      * 获取房间等级配置
@@ -562,17 +553,37 @@ plugins {
     fun roomNextLevelConfig(ygChatCallback: YGChatCallback<YGChatRoomLevelEntity>)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.roomNextLevelConfig(); ```
-  ### 2.33自己麦克风禁麦
+  ### 2.32获取房间锁价格
  ``` kotlin
     /**
-     *自己麦克风禁麦
+     * 获取房间锁价格
+     * @param ygChatCallback YGChatCallback<Int> 回调 成功返回价格 失败返回当前错误码
+     */
+    fun roomLockPrice(ygChatCallback: YGChatCallback<Int>)
+ ```
+ - 示例：``` YllGameChatSdk.INSTANCE.roomLockPrice(); ```
+ ### 2.33取消或恢复订阅所有远端用户的音频流
+  ``` kotlin
+    /**
+     * 静音全部麦
+     * @param audioMuted Boolean true 静音 false 非静音
+     * @return Int 0返回调用成功 <0调用失败了
+     */
+    fun muteAllRemoteAudio(audioMuted: Boolean)
+ ```
+ - 示例：``` YllGameChatSdk.INSTANCE.muteAllRemoteAudio(); ```
+  ### 2.34开启/关闭本地麦克风
+ ``` kotlin
+    /**
+     *开启/关闭本地麦克风
      * @param micMuted Boolean true 不采集麦克风 false 采集麦克风
      * @return Int 0返回调用成功 <0调用失败了
      */
     fun muteLocalMic(micMuted: Boolean)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.muteLocalMic(); ```
- ### 2.34静音某个麦
+ 
+ ### 2.35取消或恢复订阅指定远端用户的音频流
  ``` kotlin
     /**
      * 静音某个麦
@@ -583,17 +594,16 @@ plugins {
     fun muteRemoteAudio(uid: Long, audioMuted: Boolean)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.muteRemoteAudio(); ```
- ### 2.35静音全部麦
+  ### 2.36 获取当前聊天室信息
   ``` kotlin
-    /**
-     * 静音全部麦
-     * @param audioMuted Boolean true 静音 false 非静音
-     * @return Int 0返回调用成功 <0调用失败了
+   /**
+     * 获取当前聊天室信息
+     * @return YGChatRoomInfoEntity?
      */
-    fun muteAllRemoteAudio(audioMuted: Boolean)
+   fun getCurrentChatRoomInfo(): YGChatRoomInfoEntity?
  ```
- - 示例：``` YllGameChatSdk.INSTANCE.muteAllRemoteAudio(); ```
-  ### 2.36 房间背景音乐
+ - 示例：``` YllGameChatSdk.INSTANCE.getCurrentChatRoomInfo(); ```
+  ### 2.37 房间背景音乐
   ``` kotlin
    /**
      * 房间背景音乐
