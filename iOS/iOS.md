@@ -120,6 +120,10 @@ SDK下载地址(请联系对接人获取)
 - (void)ygc_notifySendDiamondGift:(YGChatNotifySendDiamondGiftModel * _Nonnull)model;
 /// 房间信息变更
 - (void)ygc_notifyRoomInfoChange:(YGChatNotifyRoomInfoChangeModel * _Nonnull)model;
+/// 开启直播通知
+- (void)ygc_notifyRoomLiveStart:(YGRoomLiveNoticeModel * _Nonnull)model;
+/// 关闭直播通知
+- (void)ygc_notifyRoomLiveStop:(YGRoomLiveNoticeModel * _Nonnull)model;
 /// 播放设备变更
 - (void)ygc_didAudioRouteChanged:(AgoraRtcEngineKit * _Nonnull)engine routing:(AgoraAudioOutputRouting)routing;
 /// 用户音量提示回调
@@ -132,7 +136,7 @@ SDK下载地址(请联系对接人获取)
 /// socket 状态更改
 - (void)ygc_onConnectionChange:(YGC_SOCKET_STATE)state;
 /// 录屏回调
-- (void)ygc_broadcastFinishedWithReason:(YGC_REPLAY_REASON)reason;
+- (void)ygc_broadcastFinishedWithReason:(YGC_REPLAY_REASON)reason;;
 ```
 
 ### 3.3 退出房间
