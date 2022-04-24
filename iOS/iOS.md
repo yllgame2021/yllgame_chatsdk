@@ -49,14 +49,14 @@ SDK下载地址(请联系对接人获取)
 ### 2.5 SDK录屏直播功能设置
 - App Groups 配置账号由SDK方提供
 
-#### 2.5.1 配置Capabilities
+#### 1. 配置Capabilities
 ![配置](img/Signing&Capabilities2.jpg)
 
-#### 2.5.2 新建Target
+#### 2. 新建Target
 - 点击Editor -> Add Target -> Boradcast Upload Extension
 ![配置](img/BoradcastUploadExtension.jpg)
 
-#### 2.5.3 添加录屏直播功能相关代码([示例文件](https://github.com/yllgame2021/yllgame_chatsdk/tree/main/iOS/SampleHandler))
+#### 3. 添加录屏直播功能相关代码([示例文件](https://github.com/yllgame2021/yllgame_chatsdk/tree/main/iOS/SampleHandler))
 ![配置](img/SampleHandler.jpg)
 
 ## 3. SDK初始化与API接口
@@ -450,7 +450,7 @@ SDK下载地址(请联系对接人获取)
 ```
 
 ### 3.41 直播主进程操作
-#### 3.41.1 开始/关闭直播
+- 开始/关闭直播
 ```obj-c
 /// 开始/关闭直播
 /// @param broadcastName 创建的broadcat upload Extension 的名字
@@ -458,13 +458,13 @@ SDK下载地址(请联系对接人获取)
 [[YllGameChatSDK getInstance] ygc_roomOpenLiveWithBroadcastName:<#(nonnull NSString *)#> completionHandler:<#^(YGC_CHAT_STATE state, int32_t errorCode)completionHandler#>];
 ```
 
-#### 3.41.2 观看直播
+- 观看直播
 ```obj-c
 /// @param completionHandler 操作结果回调
 [[YllGameChatSDK getInstance] ygc_roomPlayLiveWithCompletionHandler:<#^(YGC_CHAT_STATE state, int32_t errorCode)completionHandler#>];
 ```
 ### 3.42 录屏直播 Extesion 进程操作
-#### 3.42.1 开始广播
+- 开始广播
 ```obj-c
 /// 开始广播
 /// @param delegate 代理协议 (YllGameChatDelegate)
@@ -472,21 +472,21 @@ SDK下载地址(请联系对接人获取)
 [[YllGameChatSDK getInstance] ygc_startBroadcastWithDelegate:<#(nonnull id)#>];
 ```
 
-#### 3.42.2 暂停广播
+- 暂停广播
 ```obj-c
 /// 暂停广播
 /// 注: 只在Extension SampleHandler 里面调用
 [[YllGameChatSDK getInstance] ygc_pausedBroadcast];
 ```
 
-#### 3.42.3 继续广播
+- 继续广播
 ```obj-c
 /// 继续广播
 /// 注: 只在Extension SampleHandler 里面调用
 [[YllGameChatSDK getInstance] ygc_resumedBroadcast];
 ```
 
-#### 3.42.4 停止广播
+- 停止广播
 ```obj-c
 /// 停止广播
 /// 注: 只在Extension SampleHandler 里面调用
