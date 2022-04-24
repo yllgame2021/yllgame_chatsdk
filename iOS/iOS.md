@@ -114,6 +114,8 @@ SDK下载地址(请联系对接人获取)
 - (void)ygc_notifySayText:(YGChatNotifySayTextModel * _Nonnull)model;
 /// 通知发送表情消息
 - (void)ygc_notifySaySticker:(YGChatNotifySayStickerModel * _Nonnull)model;
+/// 通知发送图片消息
+- (void)ygc_notifySayImage:(YGChatNotifySayImageModel * _Nonnull)model;
 /// 通知发送钻石礼物
 - (void)ygc_notifySendDiamondGift:(YGChatNotifySendDiamondGiftModel * _Nonnull)model;
 /// 房间信息变更
