@@ -130,7 +130,7 @@ SDK下载地址(请联系对接人获取)
 /// socket 状态更改
 - (void)ygc_onConnectionChange:(YGC_SOCKET_STATE)state;
 ```
-- SDK Vsesion 1.0.1 新增
+- SDK v1.0.1 新增代理
 ```obj-c
 /// 开启直播通知
 - (void)ygc_notifyRoomLiveStart:(YGRoomLiveNoticeModel * _Nonnull)model;
