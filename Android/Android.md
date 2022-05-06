@@ -28,8 +28,6 @@
  implementation 'com.googlecode.protobuf-java-format:protobuf-java-format:1.4'
  implementation 'com.google.protobuf:protobuf-java:3.17.1'
  implementation 'com.google.protobuf:protobuf-java-util:3.17.1'
- //Java注解库
- implementation "javax.annotation:javax.annotation-api:1.2"
  //Kotlin基础库
  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.31"
  implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
@@ -45,8 +43,6 @@
  implementation 'androidx.room:room-runtime:2.2.5'
  annotationProcessor "androidx.room:room-compiler:2.2.5"
  implementation "androidx.room:room-ktx:2.2.5"
- //liveDataBus
- implementation 'com.jeremyliao:live-event-bus-x:1.6.0'
  ```
  
  ### 1.2设置项目的libs文件目录
