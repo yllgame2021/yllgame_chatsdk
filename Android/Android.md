@@ -44,20 +44,39 @@
  annotationProcessor "androidx.room:room-compiler:2.2.5"
  implementation "androidx.room:room-ktx:2.2.5"
  ```
- 
- ### 1.2设置项目的libs文件目录
- 在主项目APP下build.gradle 中的android加入
-  ``` Groovy
- repositories {
-        flatDir {
-            dirs 'libs'
-        }
-    }
+ ### 1.2 添加插件依赖
+ 在主工程根目录下的build.gradle内buildScript内添加如下
  ```
- ### 1.3设置项目的插件
+ buildscript {
+    repositories {
+        google()
+        maven { url "https://jitpack.io" }
+        mavenCentral()
+    }
+    dependencies {~~~~
+        //gradle 插件
+        classpath "com.android.tools.build:gradle:4.1.0"
+        //kotlin插件
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.18'
+        classpath 'io.michaelrocks:paranoid-gradle-plugin:0.3.7'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle filesbase
+    }
+}
+ ```
+ ### 1.3设置项目的libs文件目录
+ * 在src平级目录创建libs文件夹，将YllGameChatSdk_Game_版本号.aar拷贝进去
+ * 在主项目app下的build.gradle 的dependencies内添加
+  ```
+  implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+  ```
+
+ ### 1.4设置项目的插件
  在主项目APP下build.gradle 中的plugins加入
   ``` Groovy
 plugins {
+    id 'com.android.application'
     id 'kotlin-android'
     id 'io.michaelrocks.paranoid'
 }
