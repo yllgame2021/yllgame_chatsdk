@@ -53,7 +53,7 @@
         maven { url "https://jitpack.io" }
         mavenCentral()
     }
-    dependencies {~~~~
+    dependencies {
         //gradle 插件
         classpath "com.android.tools.build:gradle:4.1.0"
         //kotlin插件
@@ -72,9 +72,21 @@
   implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
   ```
 
- ### 1.4设置项目的插件
- 在主项目APP下build.gradle 中的plugins加入
-  ``` Groovy
+ ### 1.4 引入插件
+在主项目的app内的build.gradle内引入插件
+
+有两种写法
+ 
+1.4.1 apply plugin
+
+``` Grovvy
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'io.michaelrocks.paranoid'
+```
+1.4.2 plugins
+
+``` Groovy
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
