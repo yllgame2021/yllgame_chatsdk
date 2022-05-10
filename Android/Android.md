@@ -7,6 +7,7 @@
     - [1.2 添加插件依赖](#12-添加插件依赖)
     - [1.3设置项目的libs文件目录](#13设置项目的libs文件目录)
     - [1.4 引入插件](#14-引入插件)
+    - [1.5 编译配置](#15-编译配置)
   - [2.接入SDK](#2接入sdk)
     - [申请麦克风权限](#申请麦克风权限)
     - [2.1登陆房间](#21登陆房间)
@@ -181,6 +182,26 @@ plugins {
     id 'io.michaelrocks.paranoid'
 }
  ```
+ ### 1.5 编译配置
+ 在主项目build.gradle的android添加配置如下
+```Grovvy
+android {
+    compileSdk 30
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 30
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+```
  ## 2.接入SDK
  ### 申请麦克风权限
  ``` java 
@@ -232,50 +253,99 @@ plugins {
  ```
  - YGChatNotifyCallback：通知
  ``` kotlin
- fun onConnectionChange(statCode: Int)
- //        const val CONNECTING = 1
-        const val CONNECTED = 2
-        const val DISCONNECTED = -1
-        const val WAITINGRECONNECT = -2
-    //通知用户进出房间
+   /**
+     * @param statCode Int
+     * @see   SocketConnectionStats.Companion.CONNECTING 开始连接
+     * @see   SocketConnectionStats.Companion.CONNECTED 连接成功
+     * @see   SocketConnectionStats.Companion.DISCONNECTED 停止连接
+     * @see   SocketConnectionStats.Companion.WAITINGRECONNECT 重新连接中
+     * @see   SocketConnectionStats.Companion.INITIATIVE_DISCONNECTED 主动断开服务器连
+     */
+    fun onConnectionChange(statCode: Int)
+    /**
+     *通知用户进出房间
+     */
     fun notifyUserLog(userLogEntity: YGChatNotifyRoomUserLogEntity)
-    //通知用户上麦
+    /**
+     *通知用户上麦
+     */
     fun notifyUserMicUp(micUpEntity: YGChatNotifyRoomMicUpEntity)
-    //通知用户邀请上麦
+    /**
+     *通知用户邀请上麦
+     */
     fun notifyUserInviteMicUp(inviteUpEntity: YGChatNotifyRoomMicInviteUpEntity)
-    //通知用户下麦
+    /**
+     *通知用户下麦
+     */
     fun notifyUserMicDown(micDownEntity: YGChatNotifyRoomMicDownEntity)
-    //通知被踢下麦用户 你已被踢下麦
+    /**
+     *通知被踢下麦用户 你已被踢下麦
+     */
     fun notifyUserKickMic(userMicKickEntity: YGChatNotifyRoomUserMicKickEntity)
-    //通知锁麦消息
+    /**
+     *通知锁麦消息
+     */    
     fun notifyUserMicLocked(micLockedEntity: YGChatNotifyRoomMicLockedEntity)
-    //通知解麦消息
+     /**
+     *通知解麦消息
+     */   
     fun notifyUserMicUnLocked(micUnLockedEntity: YGChatNotifyRoomMicUnLockedEntity)
-    //通知用户禁言/解除禁言
+    /**
+     *通知用户禁言/解除禁言
+     */
     fun notifyRoomUserSilence(silenceEntity: YGChatNotifyRoomUserSilenceEntity)
-    //通知用户踢出房间
+    /**
+     *通知用户踢出房间
+     */
     fun notifyRoomUserKick(userKickEntity: YGChatNotifyRoomUserKickEntity)
-    //通知取消房间管理员
+    /**
+     *通知取消房间管理员
+     */
     fun notifyRoomManagerDown(managerDownEntity: YGChatNotifyRoomManagerDownEntity)
-    //通知升级房间管理员
+   /**
+     *通知升级房间管理员
+     */
     fun notifyRoomMemberUp(memberUpEntity: YGChatNotifyRoomMemberUpEntity)
-    //通知用户已被房间封禁
+    /**
+     *通知用户已被房间封禁
+     */
     fun notifyRoomUserBan(userBannedEntity: YGChatNotifyRoomUserBannedEntity)
-    //系统广播
+    /**
+     *系统广播
+     */
     fun notifySystemBroadcast(systemBroadcastEntity: YGChatNotifySystemBroadcastEntity)
-    //管理后台封禁用户
+    /**
+     *管理后台封禁用户
+     */
     fun notifyRoomSystemUserBan(systemUserBanEntity: YGChatNotifySystemUserBanEntity)
-    //通知收到文字消息
+    /**
+     *通知收到文字消息
+     */
     fun notifySayText(messageEntity: YGChatNotifySendMessageEntity)
-    //通知收到表情包
+    /**
+     *通知收到表情包
+     */
     fun notifySaySticker(messageEntity: YGChatNotifyRoomStickerEntity)
-    //通知收到礼物
+    /**
+     *通知收到礼物
+     */
     fun sendGift(sendGiftEntity: YGChatNotifySendGiftEntity)
-    //发送图片消息通知
+    /**
+     *发送图片消息通知
+     */
     fun notifySayImage(notifySayImage: YGChatNotifySayImageEntity)
-    //房间信息改变
+    /**
+     *房间信息改变
+     */
     fun notifyRoomInfoChange(changeEntity: YGChatNofityRoomInfoChangeEntity)
-    //麦位声波指示器
+   
+    /**
+     * 麦位声波指示器
+     * @param audioChatVolumes List<AudioChatVolume>
+     * @param totalVolume Int 混音后的总音量，取值范围为 [0,255]。
+     * 在本地用户的回调中，totalVolume 为本地发流用户的音量。
+     * 在远端用户的回调中，totalVolume 为瞬时音量最高的远端用户（最多 3 位）混音后的总音量。
+     */
     fun notifyRoomAudioVolumeIndication(
         audioChatVolumes: List<AudioChatVolume>,
         totalVolume: Int
@@ -287,7 +357,10 @@ plugins {
     //关闭录屏通知
     fun notifyRoomCloseLive(closeLiveUserEntity: YGChatNotifyRoomCloseLiveEntity)
 
-    //agora错误
+   /**
+     * agora错误
+     * @param errorCode Int
+     */
     fun audioError(errorCode: Int)
     
      /**
