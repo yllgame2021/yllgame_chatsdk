@@ -100,7 +100,6 @@
 首先把AAR包复制到项目的lib目录下，然后在主项目APP下build.gradle 中的dependencies加入
  ``` Groovy
  //SDK基础库
- implementation(name: 'YllGameChat_lib_1.0.1', ext: 'aar')
  implementation 'androidx.appcompat:appcompat:1.2.0'
  //androidx
  implementation 'androidx.core:core-ktx:1.6.0'
