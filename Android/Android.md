@@ -45,7 +45,7 @@
  implementation "androidx.room:room-ktx:2.2.5"
  ```
  ### 1.2 添加插件依赖
- 在主工程根目录下的build.gradle内buildScript内添加如下
+ 在主工程根目录下的build.gradle内buildScript内添加
  ```
  buildscript {
     repositories {
@@ -676,4 +676,381 @@ plugins {
     fun roomPlayLive(activity: Activity): Int
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.roomPlayLive(); ```
-
+### 3 数据模型
+3.1 用户模型
+```Kotlin
+//用户模型
+data class YGChatUserInfoEntity(
+    var userId: Long,// 角色ID
+    var name: String,  // 用户昵称
+    var sex: Int,   // 用户性别
+    var level: Int, // 用户等级
+    var headPhoto: String,// 用户头像
+    var userRole: Int, // 用户房间角色  0： 访客（散客普通用户）  1：房主   2： 管理员   3： 成员   4: 系统游客（未注册平台用户
+    var hasMic: Int,// 用户在麦标识 0: 不在麦 >0: 在麦，具体值表示在哪个麦上
+    var silenced: Boolean, // 用户房管理禁麦
+    var priority: Long, // 用户房间排名权值
+    var sysRole: Int, // 平台角色  0：平常用户 1：官方用户
+    var manageRole: Int,// 0：非管理用户 1：超管 2：巡管
+    var vipLevel: Int,// vip等级
+    var silencedChat: Boolean,// 用户是否被禁聊天
+    var serverId: Long,//服务器id
+    var serverName: String,//区服名
+    var fight: Double,  // 战力值
+    var region: Int,  //  用户语区 英语1 阿语2
+    var chatBubble: Int,  //聊天气泡
+    var headStyle: Int,  //头像框地址
+    var isLivePermission: Boolean,  //是否有分享直播录屏权限
+)
+```
+3.2 房间模型
+```Kotlin
+data class YGChatRoomInfoEntity(
+    var roomId: Long,// 房间id 与房主id相同
+    var prettyId: Long,  // 房间靓号id
+    var name: String,   // 房间名字
+    var level: Int, // 房间等级
+    var image: String,// 房间图片
+    var micType: Int, //房间麦类型 0 语音麦
+    var region: Int,// 房间语区
+    var notice: String, // 房间公告
+    var background: String, // 房间背景
+    var audio: Int, // 房间音频类型     0： agero  1： zego
+    var roomType: Int,// 房间类型 100:官方房  1:个人房   2:联盟房',
+    var channelKey: String,// 房间音频key
+    var micOnType: Int,// 房间上麦类型
+    var countryCode: String,//国家code
+    var isPwdRoom: Int,//是否设置密码
+    var canSetPwd: Int,  // 房间是否拥有设置密码权限
+    var areaId: Long,  // 区服id
+    var groupId: Long,  // 区服group_id
+    var activity: List<YGActivityBannerEntity>,//活动列表
+    var screenType: Int,//屏幕类型 1：横屏 2：竖屏
+    var YGFRate: String,//帧率
+    var YGDResolution: String,// 分辨率
+)
+```
+3.3 麦位模型
+```Kotlin
+data class YGChatUserMicInfoEntity(
+    var userId: Long,// 角色ID
+    var name: String,  // 用户昵称
+    var sex: Int,   // 用户性别
+    var level: Int, // 用户等级
+    var vipLevel: Int, // 用户等级
+    var headPhoto: String,// 用户头像
+    var headStyle: Int, // 头像框地址
+    var userRole: Int,// 用户房间角色  0： 访客（散客普通用户）  1：房主   2： 管理员
+    var micOrder: Int,//麦序 从0开始编号
+    var micVideo: Boolean,//是否为视频麦
+    var micForbidden: Boolean,//麦是否被禁用
+    var silenced: Boolean,// 是否被禁言
+    var sysRole: Int,// 平台角色  0：平常用户 1：官方用户
+    var serverId: Int,// 服务器id
+    var serverName: String,// 区服名
+    var fight: Double,// 战力值
+    var manageRole: Int,// 0：非管理用户 1：超管 2：巡管
+    var hasLive: Boolean,// 是否已开启录屏分享直播
+)
+```
+3.4 登录模型
+```Kotlin
+data class YGChatRoomLiveInfoEntity(
+    var user: YGChatUserInfoEntity,// 用户信息
+    var room: YGChatRoomInfoEntity,// 房间信息
+    var micList: List<YGChatUserMicInfoEntity>,// 在麦的麦序列表
+    var micLockedList: List<Int>,// 被锁住的麦序列表
+    var coin: Long,//金币
+    var diamond: Long,//钻石
+    var singleNum: Long,
+)
+```
+3.5 图片消息模型
+```Kotlin
+data class YGChatSendImageEntity(
+    /**
+     * 图片url
+     */
+    var imageUrl: String
+)
+```
+3.6 简单用户模型
+```Kotlin
+data class YGChatAtUserEntity(
+    var userId: Long,//用户Id
+    var name: String,  //用户昵称
+)
+```
+3.7 文字消息模型
+```Kotlin
+data class YGChatSendMessageEntity(
+    var text: String,// 消息内容
+    var chatBubble: Int,//聊天气泡
+    var atUser: MutableList<YGChatAtUserEntity>,// @用户信息
+)
+```
+3.8 文字消息通知模型
+```Kotlin
+data class YGChatNotifySendMessageEntity(
+    var text: String,// 消息内容
+    var user: YGChatUserInfoTinyEntity,// 发送者用户信息
+    var chatBubble: Int,//聊天气泡
+    var atUser: MutableList<YGChatAtUserEntity>,// @用户信息
+)
+```
+3.9 表情包消息模型
+```Kotlin
+data class YGChatRoomStickerEntity(
+    var imageUrl: String,//表情地址
+    var picWidth: Int,//宽
+    var picHeight: Int,//高
+    var stickerId: Long,//表情包Id
+)
+```
+3.10 图片消息通知模型
+```Kotlin
+data class YGChatNotifySayImageEntity(
+    //图片地址
+    var imageUrl: String,
+    //发送图片的用户
+    var user: YGChatUserInfoTinyEntity,
+    //通知的用户列表
+    var atUser: List<YGChatUserInfoTinyEntity>
+)
+```
+3.11 进出房消息通知模型
+```Kotlin
+data class YGChatNotifyRoomUserLogEntity(
+    var kind: Int,// 类型 0：进房间 1：离开房间
+    var user: YGChatUserInfoEntity,//用户信息
+    var online: Int,//房间在线人数
+)
+```
+3.12 上麦通知模型
+```Kotlin
+data class YGChatNotifyRoomMicUpEntity(
+    //上麦的用户信息
+    var micUser: YGChatUserMicInfoEntity
+)
+```
+3.13 通知用户被邀请上麦模型
+```Kotlin
+data class YGChatNotifyRoomMicInviteUpEntity(
+    var user: YGChatUserInfoTinyEntity,// 邀请者的用户信息
+)
+```
+3.14 通知用户被邀请上麦模型
+```Kotlin
+data class YGChatNotifyRoomMicDownEntity(
+    var reason: Int,//0:用户正常下麦 1：用户被踢下麦
+    var micOrder: Int,//麦位
+    var user: YGChatUserInfoTinyEntity,// 下麦者的用户信息
+)
+```
+3.15 通知被踢下麦用户模型
+```Kotlin
+data class YGChatNotifyRoomUserMicKickEntity(
+    var user: YGChatUserInfoTinyEntity,//操作者的用户信息
+)
+```
+3.16 通知锁麦消息模型
+```Kotlin
+data class YGChatNotifyRoomMicLockedEntity(
+    var micOrder: Int,//麦位
+)
+```
+3.17 通知禁言/解除禁言模型
+```Kotlin
+data class YGChatNotifyRoomUserSilenceEntity(
+    var user: YGChatUserInfoTinyEntity,//被封禁的用户
+    var opUser: YGChatUserInfoTinyEntity,// 操作用户
+    var enable: Boolean,//true: 禁言 false：解除禁言
+    var type: Int,// 禁言类型0禁麦，1禁文字消息
+)
+```
+3.17 通知踢出房间模型
+```Kotlin
+data class YGChatNotifyRoomUserKickEntity(
+    var user: YGChatUserInfoTinyEntity,//被封禁的用户
+    var opUser: YGChatUserInfoTinyEntity,// 操作用户
+)
+```
+3.18 通知取消房间管理员通知模型
+```Kotlin
+data class YGChatNotifyRoomManagerDownEntity(
+    //被取消管理员的用户Id
+    var userId: Long,
+)
+```
+3.19 通知升级为管理员通知模型
+```Kotlin
+data class YGChatNotifyRoomMemberUpEntity(
+    //被升级为管理员的用户Id
+    var user: YGChatUserInfoTinyEntity,
+)
+```
+3.20 用户已被封禁通知模型
+```Kotlin
+data class YGChatNotifyRoomUserBannedEntity(
+    var user: YGChatUserInfoTinyEntity,//被封禁的用户
+    var opUser: YGChatUserInfoTinyEntity,// 操作用户
+)
+```
+3.21 系统广播模型
+```Kotlin
+data class YGChatNotifySystemBroadcastEntity(
+    var sysType: Int,// 广播类型 0:系统广播
+    var lang: Int,// 语言内容版本 1: 英语 2:阿语 3:印地语 4: 乌尔都语
+    var content: String,// 对应语言版本内容
+)
+```
+3.22 房间后台禁言通知模型
+```Kotlin
+data class YGChatNotifySystemUserBanEntity(
+    var expireAt: Long,// 禁言到期时间
+    var reason: String,// 禁言原因
+)
+```
+3.23 发送钻石礼物通知模型
+```Kotlin
+data class YGChatNotifySendGiftEntity(
+    var gift: YGChatGiftViewEntity,// 礼物模型
+    var room: YGChatRoomInfoEntity,  // 房间模型
+    var user: YGChatUserInfoTinyEntity,   // 发送者用户信息
+    var toUser: YGChatUserInfoTinyEntity, // 接受者用户信息
+    var hornType: Int,// 触发喇叭类型
+) {
+    companion object {
+        const val GIFT_HORN_NONE = 0;  //普通小礼物
+        const val GIFT_HORN_REGION = 1;    //普通大礼物
+        const val GIFT_HORN_ALL = 2;    //全站礼物
+    }
+}
+```
+3.24 房间信息变更通知模型
+```Kotlin
+data class YGChatNotifyRoomInfoChangeEntity(
+    var type: List<Int>,// 变更类型
+    var roomId: Long,  // 房间靓号id
+    var image: String,   // 房间图片
+    var name: String, // 房间名字
+    var notice: String,// 房间公告
+    var region: Int, //房间语区
+    var canSetPwd: Int,// 是否可设置密码
+    var isPwdRoom: Int, // 是否上锁
+    var level: Int, // 房间等级
+    var micUpType: Int, // 房间上麦模式变更 0自由 1 邀请
+) {
+    companion object {
+        const val INFO_IMAGE = 0; //房间图片
+        const val INFO_NAME = 1;  //房间名字
+        const val INFO_NOTICE = 2; //房间公告
+        const val INFO_REGION = 3; //房间语区
+        const val INFO_LEVEL = 4; //房间等级
+        const val INFO_CAN_SET_PWD = 5; //房间密码
+        const val INFO_IS_PWD = 6;// 房间上锁解锁
+        const val INFO_MIC_UP_TYPE = 7; //房间上麦模式变更
+    }
+}
+```
+3.25 开启录屏通知模型
+```Kotlin
+data class YGChatNotifyRoomOpenLiveEntity(
+    //直播用户信息
+    var liveUser: YGChatUserMicInfoEntity,
+)
+```
+3.26 关闭录屏通知模型
+```Kotlin
+data class YGChatNotifyRoomCloseLiveEntity(
+    //直播用户信息
+    var liveUser: YGChatUserMicInfoEntity,
+)
+```
+3.26 发送钻石礼物模型
+```Kotlin
+data class YGChatRoomSendGiftEntity(
+    //接受者Id
+    var toId: Long,
+    //礼物Id
+    var giftId: Long,
+    //礼物数量
+    var number: Int,
+)
+```
+3.27 房间内送礼排行榜模型
+```Kotlin
+data class YGChatRoomPropRankEntity(
+    var rankType: Int,// 0 last24hour 1 last7d
+    var totalAmount: Long,//送礼总金额
+    var myAmount: Long,//我的送礼总金额
+    var isInRank: Boolean,//是否在榜
+    var rankList: List<YGChatUserRankEntity>,  //排行榜
+)
+```
+3.28 封禁用户列表模型
+```Kotlin
+data class YGChatRoomUserBanListEntity(
+    //封禁用户列表
+    var list: List<YGChatUserInfoEntity>,
+)
+```
+3.29 获取房间管理员列表模型
+```Kotlin
+data class YGChatRoomManagerListEntity(
+    //房间管理员列表
+    var list: List<YGChatUserInfoEntity>,
+)
+```
+3.30 获取房间等级配置模型
+```Kotlin
+data class YGChatRoomLevelEntity(
+    var current: YGChatRoomLevelConfigEntity,// 等级
+    var next: YGChatRoomLevelConfigEntity,//花费经额
+    var isTopLevel: Boolean,//最大管理人数
+)
+```
+3.31 礼物模型列表模型
+```Kotlin
+data class YGChatRoomGiftListEntity(
+    //礼物列表
+    var list: List<YGChatGiftViewEntity>
+)
+```
+3.32 加载用户列表模型
+```Kotlin
+data class YGChatRoomUserListEntity(
+    //用户列表
+    var users: List<YGChatUserInfoEntity>,
+    //在线的总人数
+    var online: Int,
+    //搜索关键字
+    var keyword: String,
+)
+```
+3.32 刷新用户列表模型
+```Kotlin
+data class YGChatRoomUserListEntity(
+    //用户列表
+    var users: List<YGChatUserInfoEntity>,
+    //在线的总人数
+    var online: Int,
+    //搜索关键字
+    var keyword: String,
+)
+```
+3.33 禁言/解除禁言模型
+```Kotlin
+data class YGChatRoomUserSilenceEntity(
+    var userId: Long,//被操作的用户id
+    var enable: Boolean,  //true: 禁言 false：解除禁言
+    var type: Int,  //禁言类型0禁麦，1禁文字消息
+)
+```
+3.34 封禁/解封用户模型
+```Kotlin
+data class YGChatRoomUserBanEntity(
+    var targetUserId: Long,//用户
+    var enable: Boolean,//true 封禁 false解封
+)
+```
