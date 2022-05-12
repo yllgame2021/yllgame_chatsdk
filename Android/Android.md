@@ -51,6 +51,7 @@
     - [2.38 开播](#238-开播)
     - [2.39 关播](#239-关播)
     - [2.40 观看直播](#240-观看直播)
+    - [2.41 房间麦序切换](#241-房间麦序切换)
   - [3 数据模型](#3-数据模型)
     - [3.1 用户模型](#31-用户模型)
     - [3.2 房间模型](#32-房间模型)
@@ -370,6 +371,18 @@ android {
      * @see MusicPlayerCommand.PlayerState.STATE_ERROR 错误
      */
     fun onPlayerState(playerState: MusicPlayerCommand.PlayerState)
+
+    /**
+     * 通知用户切麦成功
+     * @param notifyMicChangeEntity YGChatNotifyChangeMicEntity
+     */
+    fun notifyUserMicChange(notifyMicChangeEntity: YGChatNotifyChangeMicEntity)
+
+   /**
+     * 通知改变联盟房房主
+     * @param notifyChangeUnionOwner YGChatNotifyChangeUnionOwnerEntity
+     */
+    fun notifyChangeUnionRoomOwner(notifyChangeUnionOwner: YGChatNotifyChangeUnionOwnerEntity)
  ```
   - 示例：``` YllGameChatSdk.INSTANCE.loginRoom(); ```
   ### 2.2登出房间
@@ -835,6 +848,19 @@ android {
     fun roomPlayLive(activity: Activity): Int
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.roomPlayLive(); ```
+
+### 2.41 房间麦序切换
+```kotlin
+/**
+  * 房间麦序切换
+  * @param oldMicOrder Int 旧麦位
+  * @param newMicOrder Int 新麦位
+  * @param ygChatCallback YGChatCallback<YGChatChangeMicEntity> 回调
+  */
+fun changeMic(oldMicOrder: Int, newMicOrder: Int,
+        ygChatCallback: YGChatCallback<YGChatChangeMicEntity>
+)
+```
 ## 3 数据模型
 ### 3.1 用户模型
 ```Kotlin
