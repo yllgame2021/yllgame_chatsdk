@@ -141,6 +141,13 @@ SDK下载地址(请联系对接人获取)
 /// 录屏回调
 - (void)ygc_broadcastFinishedWithReason:(YGC_REPLAY_REASON)reason;;
 ```
+- SDK v1.0.2 新增代理
+```obj-c
+/// 通知房间麦序被改变
+- (void)ygc_notifyChangeMic:(YGChatNotifyChangeMicModel * _Nonnull)model;
+/// 联盟房间拥有者改变
+- (void)ygc_notifyUnionRoomOwnerChange:(YGRoomChangeUnionRoomOwner * _Nonnull)model;;
+```
 
 ### 3.3 退出房间
 ```obj-c
@@ -494,4 +501,13 @@ SDK下载地址(请联系对接人获取)
 /// 停止广播
 /// 注: 只在Extension SampleHandler 里面调用
 [[YllGameChatSDK getInstance] ygc_finishedBroadcast];
+```
+### 3.42 房间麦序切换
+- 开始切换房间麦序
+```obj-c
+/// 房间麦序切换
+/// @param oldMicOrder 老麦序
+/// @param newMicOrder 新麦序
+/// @param completionHandler 操作结果回调
+        [[YllGameChatSDK getInstance] ygc_changeMicWithOldMicOrder:<#(int32_t)#> newMicOrder:<#(int32_t)#> completionHandler:<#^(YGC_CHAT_STATE state, YGChatChangeMicResModel * _Nullable model, int32_t errorCode)completionHandler#>];
 ```
