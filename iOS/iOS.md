@@ -503,11 +503,11 @@ SDK下载地址(请联系对接人获取)
 [[YllGameChatSDK getInstance] ygc_finishedBroadcast];
 ```
 ### 3.42 房间麦序切换
-- 开始切换房间麦序
+- 房间麦序切换
 ```obj-c
 /// 房间麦序切换
 /// @param oldMicOrder 老麦序
 /// @param newMicOrder 新麦序
 /// @param completionHandler 操作结果回调
-        [[YllGameChatSDK getInstance] ygc_changeMicWithOldMicOrder:<#(int32_t)#> newMicOrder:<#(int32_t)#> completionHandler:<#^(YGC_CHAT_STATE state, YGChatChangeMicResModel * _Nullable model, int32_t errorCode)completionHandler#>];
+[[YllGameChatSDK getInstance] ygc_changeMicWithOldMicOrder:<#(int32_t)#> newMicOrder:<#(int32_t)#> completionHandler:<#^(YGC_CHAT_STATE state, YGChatChangeMicResModel * _Nullable model, int32_t errorCode)completionHandler#>];
 ```
