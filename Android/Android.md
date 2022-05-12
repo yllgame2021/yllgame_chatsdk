@@ -90,6 +90,8 @@
     - [3.32 刷新用户列表模型](#332-刷新用户列表模型)
     - [3.33 禁言/解除禁言模型](#333-禁言解除禁言模型)
     - [3.34 封禁/解封用户模型](#334-封禁解封用户模型)
+    - [3.35 切换麦序响应模型](#335-切换麦序响应模型)
+    - [3.36 改变联盟房房主通知模型](#336-改变联盟房房主通知模型)
 ## SDK结构
 支持平台：Android</br>
 系统要求: Android5.0+ </br>
@@ -1237,5 +1239,27 @@ data class YGChatRoomUserSilenceEntity(
 data class YGChatRoomUserBanEntity(
     var targetUserId: Long,//用户
     var enable: Boolean,//true 封禁 false解封
+)
+```
+### 3.35 切换麦序响应模型
+```Kotlin
+data class YGChatChangeMicEntity(
+    val oldMicOrder: Int,//旧麦序
+    val newMicOrder: Int//新麦序
+)
+```
+### 3.36 改变联盟房房主通知模型
+```Kotlin
+/**
+ * 改变联盟房房主通知实体
+ * @property roomId Int 房间ID
+ * @property oldOwnerId Int 旧房主Id
+ * @property newOwnerId Int 新房主Id
+ * @constructor
+ */
+data class YGChatNotifyChangeUnionOwnerEntity(
+    val roomId: Int,
+    val oldOwnerId: Int,
+    val newOwnerId: Int
 )
 ```
