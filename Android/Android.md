@@ -92,6 +92,7 @@
     - [3.34 封禁/解封用户模型](#334-封禁解封用户模型)
     - [3.35 切换麦序响应模型](#335-切换麦序响应模型)
     - [3.36 改变联盟房房主通知模型](#336-改变联盟房房主通知模型)
+    - [3.37 活动模型](#337-活动模型)
 ## SDK结构
 支持平台：Android</br>
 系统要求: Android5.0+ </br>
@@ -1261,5 +1262,15 @@ data class YGChatNotifyChangeUnionOwnerEntity(
     val roomId: Int,
     val oldOwnerId: Int,
     val newOwnerId: Int
+)
+```
+### 3.37 活动模型
+```Kotlin
+data class YGActivityBannerEntity(
+    val id: Int,  //活动Id
+    val name: String, //英文名
+    val icon: String, //活动图标
+    val url: String, //活动跳转链接 例：https://www.yalla.com?token=xxxxx
+    val goType: Int //// 跳转类型：0:h5,1:房间,2:游戏模块
 )
 ```
