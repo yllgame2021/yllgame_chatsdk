@@ -5,9 +5,10 @@
   - [1.接入流程](#1接入流程)
     - [1.1集成AAR包和三方依赖库](#11集成aar包和三方依赖库)
     - [1.2 添加插件依赖](#12-添加插件依赖)
-    - [1.3设置项目的libs文件目录](#13设置项目的libs文件目录)
-    - [1.4 引入插件](#14-引入插件)
-    - [1.5 编译配置](#15-编译配置)
+    - [1.3 指定Gradle版本](#13-指定gradle版本)
+    - [1.4 设置项目的libs文件目录](#14-设置项目的libs文件目录)
+    - [1.5 引入插件](#15-引入插件)
+    - [1.6 编译配置](#16-编译配置)
   - [2.接入SDK](#2接入sdk)
     - [申请麦克风权限](#申请麦克风权限)
     - [2.1登陆房间](#21登陆房间)
@@ -156,26 +157,31 @@
     }
 }
  ```
- ### 1.3设置项目的libs文件目录
+### 1.3 指定Gradle版本
+在项目根目录的gradle/wrapper的gradle-wrapper.properties中指定gradle版本
+```
+distributionUrl=https\://services.gradle.org/distributions/gradle-6.9-bin.zip
+```
+ ### 1.4 设置项目的libs文件目录
  * 在src平级目录创建libs文件夹，将YllGameChatSdk_Game_版本号.aar拷贝进去
  * 在主项目app下的build.gradle 的dependencies内添加
   ```
   implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
   ```
 
- ### 1.4 引入插件
+ ### 1.5 引入插件
 在主项目的app内的build.gradle内引入插件
 
 有两种写法
  
-1.4.1 apply plugin
+1.5.1 apply plugin
 
 ``` Grovvy
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'io.michaelrocks.paranoid'
 ```
-1.4.2 plugins
+1.5.2 plugins
 
 ``` Groovy
 plugins {
@@ -184,7 +190,7 @@ plugins {
     id 'io.michaelrocks.paranoid'
 }
  ```
- ### 1.5 编译配置
+ ### 1.6 编译配置
  在主项目build.gradle的android添加配置如下
 ```Grovvy
 android {
