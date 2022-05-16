@@ -94,6 +94,7 @@
     - [3.35 切换麦序响应模型](#335-切换麦序响应模型)
     - [3.36 改变联盟房房主通知模型](#336-改变联盟房房主通知模型)
     - [3.37 活动模型](#337-活动模型)
+  - [4. Code表](#4-code表)
 ## SDK结构
 支持平台：Android</br>
 系统要求: Android5.0+ </br>
@@ -1279,4 +1280,72 @@ data class YGActivityBannerEntity(
     val url: String, //活动跳转链接 例：https://www.yalla.com?token=xxxxx
     val goType: Int //// 跳转类型：0:h5,1:房间,2:游戏模块
 )
+```
+## 4. Code表
+```Kotlin
+        const val CODE_SUCCESS = 1000 // 操作成功码
+        const val CODE_FAIL = 1001 // 操作失败码
+        const val CODE_NOT_IMPL = 1002 // 协议未实现
+        const val CODE_PROTO_REG_FAIL = 1003 // 协议类型注册出错
+        const val CODE_CMD_ERR_FAIL = 1004 //协议命令出错
+        const val CODE_MSG_FILTER = 1049 // 输入的信息包含敏感词汇
+        const val CODE_PARAM_ERROR_FAIL = 1102 // 未知错误 解析参数不符逻辑错误
+        const val CODE_HUB_ERR_FAIL = 1103 // 未知错误 内部服务出错  hub 服务返回错误
+        const val CODE_ROOM_ERR_FAIL = 1104 // 未知错误 内部服务出错  room  服务返回错误
+        const val CODE_TRADE_ERR_FAIL = 1105 // 未知错误 内部服务出错  trade  交易服务返回错误
+        const val CODE_HA_NOT_FOUND = 1106 //accessha 服务未找到
+        const val CODE_HA_ERR_FAIL = 1107 //未知错误 内部服务出错  ha  服务返回错误
+        const val CODE_PROTO_ERR_FAIL = 1108 // 未知错误 Proto  序列化和反序列化解析错误
+        const val CODE_DAO_ERR_FAIL = 1109 // 未知错误 数据库交互出错
+        const val CODE_REDIS_ERR_FAIL = 1110 // 未知错误 redis交互出错
+        const val CODE_CHANNEL_INVALID = 1111 // 无效会话流 （channel 会话流失效）
+        const val CODE_USER_NOT_FOUND = 1112 // 用户未找到
+        const val CODE_BAR_NOT_FOUND = 1113 // 房间未找到
+        const val CODE_USER_NOT_INROOM = 1114 // 被操作用户已离开房间
+        const val CODE_MIC_LOCK_LIMIT = 1015 // 超过最大锁定上限
+        const val CODE_MIC_OLNY_INVITED = 1016 // 房间设置为只能邀请上麦
+        const val CODE_MIC_INVITED = 1017 // 邀请上麦失效
+        const val CODE_MIC_LOCKED = 1018 // 麦被锁
+        const val CODE_MIC_ALREADY_LOCKED = 1019 // 请勿重复加锁
+        const val CODE_MIC_INVALID_ORDER = 1120 // 无效麦序
+        const val CODE_MIC_HOLDED = 1121 // 麦被占用
+        const val CODE_MIC_OVER = 1122 // 麦已用完
+        const val CODE_MIC_HASED = 1123 // 已在麦
+        const val CODE_NO_RIGHTS = 1125 // 没有权限
+        const val CODE_MIC_ALREADYOFF = 1127 // 用户已下麦
+        const val CODE_ROOM_MEM_NOT_EXIT = 1030 // 被邀请者不存在
+        const val CODE_ROOM_MEN_SILENCED = 1031 //被邀请者已被房管理禁言
+        const val CODE_ROOM_MEM_SYS_BAN = 1032 //被邀请者已被系统禁言
+        const val CODE_ROOM_MAXED = 1133 // 房间在线人数超出限制上限
+        const val CODE_ROOM_PWD_WRONG = 1134
+        const val CODE_SETROOMPWD_NOT_LOCKROOM = 1036 // 该房间不是密码房，无法锁房
+        const val CODE_TOURIST_NO_RIGHTS = 1139 // 游客模式没有操作权限
+        const val CODE_LOGIN_USER_BANNED = 1140 // 登录用户账号被封号
+        const val CODE_KICKED = 1141 // 被房管理踢出
+        const val CODE_SILENCED = 1142 // 被房管理禁言
+        const val CODE_BANNED = 1143 // 被房管理踢出
+        const val CODE_GIFT_NOT_FOUND = 1145 // 礼物未找到
+        const val CODE_SAY_MSG_TO_LANG = 1146 // 发送文字过长
+        const val CODE_KeyWords_ERROR = 1147 // 存在敏感词
+        const val CODE_JUMP_SELF_ERROR = 1150 //不允许跳转到自己房间
+        const val CODE_PARAM_ERROR = 1151 // 参数错误
+        const val CODE_AUDIO_KEY_GENERATE = 1152 // 频道Key生成出错
+        const val CODE_HA_INCONSISTENT = 1158 // ha服务中用户不存在，reload操作
+        const val CODE_HA_UPDATE_NO_CHANGE = 1159 // 信息无更更析
+        const val CODE_ROOM_NAME_TOO_LONG = 1160 // 房间名过长
+        const val CODE_ROOM_NOTICE_TOO_LONG = 1161 //  房间公告过长
+        const val CODE_ROOM_UPDATE_UNION = 1162 // 不能在房间类更新联盟房间名称/图片/公告
+        const val CODE_ROOM_MANAGER_LIMIT = 1163 // 设置管理员超过上限
+        const val CODE_PKG_PASS = 1300 //该消息包忽略
+        const val CODE_ROOM_LIVE_HASLIVE = 1207 // 录屏直播已存在
+        const val CODE_ROOM_LIVE_ISEXIT = 1208 // 已下播
+        const val CODE_ROOM_CHAT_LOW_GRADE = 1209 // vip等级低
+        const val CODE_SOCKET_AUTH_THRIDID_VERIFYFAIL = 310 // 第三方GameID验证失败
+
+        // 结算返回操作码
+        const val CODE_TRADE_LACCOUNT_NOT_ONLINE = 1202 // 结算用户不在线
+        const val CODE_TRADE_COIN_LESS = 1206 // 余额不足
+        const val CODE_TRADE_ERR_GIFT_SELF = 1203 //不能给自己送礼
+        const val CODE_SEND_ERR_VIOLATION_IMAGE = 1204 // 图片违规
+        const val CODE_FREQUERCY = 1005 // 操作太频繁
 ```
