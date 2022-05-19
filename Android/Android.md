@@ -94,6 +94,7 @@
     - [3.35 切换麦序响应模型](#335-切换麦序响应模型)
     - [3.36 改变联盟房房主通知模型](#336-改变联盟房房主通知模型)
     - [3.37 活动模型](#337-活动模型)
+    - [3.38 礼物模型](#338-礼物模型)
   - [4. Code表](#4-code表)
 ## SDK结构
 支持平台：Android</br>
@@ -1280,6 +1281,24 @@ data class YGActivityBannerEntity(
     val url: String, //活动跳转链接 例：https://www.yalla.com?token=xxxxx
     val goType: Int //// 跳转类型：0:h5,1:房间,2:游戏模块
 )
+```
+### 3.38 礼物模型
+```Kotlin
+data class YGChatGiftViewEntity(
+    var giftId: Long,// 礼物id
+    var name: String,  // 礼物名字
+    var image: String,   // 礼物图标
+    var price: Int, // 礼物价格
+    var fType: Int,// 礼物类型  0： 普通小礼物  1: 普通大礼物 2： 全站礼物
+    var num: Int, // 礼物数量
+    var giftType: Int,//0 默认 10 幸运礼物 20周星礼物
+) {
+    companion object {
+        const val GIFT_NORMAL_SMALL = 0;  //普通小礼物
+        const val GIFT_NORMAL_BIG = 1;    //普通大礼物
+        const val GIFT_NORMAL_ALL = 2;    //全站礼物
+    }
+}
 ```
 ## 4. Code表
 ```Kotlin
