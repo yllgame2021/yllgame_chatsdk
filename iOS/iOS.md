@@ -11,9 +11,6 @@ SDK下载地址(请联系对接人获取)
 
 **SDK不支持bitcode，项目请勿打开**
 
-**用户权限说明**
-![配置](img/UserPermissionDescription.png)
-
 ## 2. iOS项目修改
 
 ### 2.1 添加资源
