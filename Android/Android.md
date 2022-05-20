@@ -131,8 +131,8 @@
  //Gson
  implementation 'com.google.code.gson:gson:2.8.9'
  //声网
- implementation 'io.agora.rtc:agora-special-full:3.7.0.204'
- implementation 'io.agora.rtc:full-screen-sharing:3.7.0.204'
+ implementation 'io.agora.rtc:agora-special-full:3.7.0.204.1'
+ implementation 'io.agora.rtc:full-screen-sharing:3.7.0.204.1'
  //Room引入
  implementation 'androidx.room:room-runtime:2.2.5'
  annotationProcessor "androidx.room:room-compiler:2.2.5"
