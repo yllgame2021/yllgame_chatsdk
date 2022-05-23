@@ -196,11 +196,11 @@ plugins {
  在主项目build.gradle的android添加配置如下
 ```Grovvy
 android {
-    compileSdk 30
+    compileSdk 31
 
     defaultConfig {
         minSdk 21
-        targetSdk 30
+        targetSdk 31
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
