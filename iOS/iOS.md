@@ -24,7 +24,7 @@ SDK下载地址(请联系对接人获取)
 
 #### 2. 在podfile文件中添加以下依赖库
 ```obj-c
-  pod 'AgoraRtcEngine_iOS', :subspecs => ['RtcBasic', 'ReplayKit']
+  pod pod 'AgoraRtcEngine_iOS','~> 3.7.0', :subspecs => ['RtcBasic', 'ReplayKit']
   pod 'SwiftProtobuf', '~> 1.17.0'
 ```
 
