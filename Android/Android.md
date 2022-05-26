@@ -394,6 +394,13 @@ android {
      * @param notifyChangeUnionOwner YGChatNotifyChangeUnionOwnerEntity
      */
     fun notifyChangeUnionRoomOwner(notifyChangeUnionOwner: YGChatNotifyChangeUnionOwnerEntity)
+
+    /**
+     * 观众是否正在观看直播
+     * @param watching Boolean true 观看中 false 结束观看
+     */
+    fun notifyAudienceWatchingLive(watching: Boolean)
+
  ```
   - 示例：``` YllGameChatSdk.INSTANCE.loginRoom(); ```
   ### 2.2登出房间
