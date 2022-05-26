@@ -924,7 +924,12 @@ data class YGChatRoomInfoEntity(
     var micOnType: Int,// 房间上麦类型
     var countryCode: String,//国家code
     var isPwdRoom: Int,//是否设置密码
-    var canSetPwd: Int,  // 房间是否拥有设置密码权限
+    /**
+     * 房间是否拥有设置密码权限
+     * 0 无权限
+     * 1 有权限
+     */
+    var canSetPwd: Int, 
     var areaId: Long,  // 区服id
     var groupId: Long,  // 区服group_id
     var activity: List<YGActivityBannerEntity>,//活动列表
