@@ -55,6 +55,7 @@ end
 
 ### 2.4 SDK后台播放功能设置
 ![配置](img/Signing&Capabilities1.jpg)
+![配置](img/addWIFIInfo.jpg)
 
 ### 2.5 SDK录屏直播功能设置
 - App Groups 配置账号由SDK方提供
