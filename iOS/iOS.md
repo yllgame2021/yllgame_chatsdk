@@ -30,7 +30,7 @@ target 'XXX' do ///XXX代表主工程名
   pod 'SwiftProtobuf', '~> 1.17.0'
 end
 
-target 'SampleHander' do
+target 'SampleHander' do ///SampleHander代表屏幕录制Target,系统默认是SampleHander。若新建target修改了名称需要换成已经修改的新名称
   use_frameworks!
   pod 'AgoraRtcEngine_iOS','~> 3.7.0', :subspecs => ['RtcBasic', 'ReplayKit']
   pod 'SwiftProtobuf', '~> 1.17.0'
@@ -65,6 +65,9 @@ end
 #### 2. 新建Target
 - 点击Editor -> Add Target -> Boradcast Upload Extension
 ![配置](img/BoradcastUploadExtension.jpg)
+
+- 点击TARGETS -> General ->将YllGameChatSDK 拖至 Frameworks and Libraries
+![配置](img/addYllGameChatSDK.jpg)
 
 #### 3. 添加录屏直播功能相关代码([示例文件](https://github.com/yllgame2021/yllgame_chatsdk/tree/main/iOS/SampleHandler))
 ![配置](img/SampleHandler.jpg)
