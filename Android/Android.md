@@ -385,15 +385,15 @@ android {
      */
     fun audioError(errorCode: Int)
     
-     /**
+    /**
      * 播放状态
-     * @param playerState PlayerState
-     * @see MusicPlayerCommand.PlayerState.STATE_PLAYING 播放中
-     * @see MusicPlayerCommand.PlayerState.STATE_PAUSED 暂停
-     * @see MusicPlayerCommand.PlayerState.STATE_STOPPED 停止
-     * @see MusicPlayerCommand.PlayerState.STATE_ERROR 错误
+     * @param playerState Int
+     * @see MusicPlayerCommand.MUSIC_PLAYER_PLAYING 播放中
+     * @see MusicPlayerCommand.MUSIC_PLAYER_PAUSED 暂停
+     * @see MusicPlayerCommand.MUSIC_PLAYER_STOP 停止
+     * @see MusicPlayerCommand.MUSIC_PLAYER_FAILED 错误
      */
-    fun onPlayerState(playerState: MusicPlayerCommand.PlayerState)
+    fun onPlayerState(playerState: Int)
 
     /**
      * 通知用户切麦成功
