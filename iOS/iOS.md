@@ -24,6 +24,7 @@ SDK下载地址(请联系对接人获取)
 
 #### 2. 在podfile文件中添加以下依赖库
 ```obj-c
+  #pod 'AgoraAudio_iOS', '~> 3.5.0.3' /// SDKv1.0.2 替换为 AgoraRtcEngine_iOS
   pod 'AgoraRtcEngine_iOS','~> 3.7.0', :subspecs => ['RtcBasic', 'ReplayKit']
   pod 'SwiftProtobuf', '~> 1.17.0'
 ```
