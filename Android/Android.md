@@ -9,6 +9,7 @@
     - [1.4 设置项目的libs文件目录](#14-设置项目的libs文件目录)
     - [1.5 引入插件](#15-引入插件)
     - [1.6 编译配置](#16-编译配置)
+    - [1.7 混淆配置](#17-混淆配置)
   - [2.接入SDK](#2接入sdk)
     - [申请麦克风权限](#申请麦克风权限)
     - [2.1登陆房间](#21登陆房间)
@@ -212,6 +213,17 @@ android {
 }
 
 ```
+ ### 1.7 混淆配置
+ ```
+ # 在proguard-rules.pro文件添加如下混淆配置
+-keep class com.yllgame.** { *; } 
+-dontwarn com.yllgame.*
+-keep interface com.yllgame.** { *; }
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+ ```
  ## 2.接入SDK
  ### 申请麦克风权限
  ``` java 
