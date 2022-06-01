@@ -65,9 +65,9 @@ end
 ![配置](img/Signing&Capabilities2.jpg)
 
 #### 2. 新建Target
-- 点击File -> New  -> Target -> iOS -> Boradcast Upload Extension ->Product Name(建议SampleHandler) -> Language(建议Objective-C语言)
+- 点击File -> New  -> Target -> iOS -> Boradcast Upload Extension ->Product Name(建议SampleHandler) -> Bundle Identifier(联系我们提供) -> Language(建议Objective-C语言)
 ![配置](img/BoradcastUploadExtension.jpg)
-![配置](img/createrTarget.jpg)
+![配置](img/addTarget.jpg)
 
 - 点击TARGETS -> General ->将YllGameChatSDK 拖至 Frameworks and Libraries
 ![配置](img/addYllGameChatSDK.jpg)
