@@ -41,7 +41,7 @@ end
 - 去掉use_frameworks!前的#
 - 在工程的相对应的 `Targets` -> `Build Settings` 的 `Other Linker Flags` ，添加`$(inherited)`
 - 然后执行 pod install
-- 注意：如出现错误 [!] Unable to find a target named `SampleHander` in project `YGCGameChatDemo.xcodeproj`, did find `YGCGameChatDemo`. 请参考2.5.2步骤新建`SampleHander` Target
+- 注意：若出现错误 [!] Unable to find a target named `SampleHander` in project `YGCGameChatDemo.xcodeproj`, did find `YGCGameChatDemo`. 请参考2.5.2步骤新建`SampleHander` Target
 
 ### 2.3 SDK所需权限设置
 - Privacy - Microphone Usage Description 麦克风权限
@@ -65,7 +65,7 @@ end
 ![配置](img/Signing&Capabilities2.jpg)
 
 #### 2. 新建Target
-- 点击File -> New  -> Target -> iOS -> Boradcast Upload Extension ->Product Name(建议SampleHandler) -> Language(建议Objective-C)
+- 点击File -> New  -> Target -> iOS -> Boradcast Upload Extension ->Product Name(建议SampleHandler) -> Language(建议Objective-C语言)
 ![配置](img/BoradcastUploadExtension.jpg)
 ![配置](img/createrTarget.jpg)
 
