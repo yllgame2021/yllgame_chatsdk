@@ -7,7 +7,7 @@ SDK下载地址(请联系对接人获取)
 
 **需要安装cocoapods管理工具([参考](https://www.kancloud.cn/god-is-coder/cocoapods/617031))**
 
-**XCode13.0+, iOS10.0+**
+**XCode13.3+, iOS10.0+**
 
 **SDK不支持bitcode，项目请勿打开**
 
@@ -64,7 +64,7 @@ end
 ![配置](img/Signing&Capabilities2.jpg)
 
 #### 2. 新建Target
-- 点击Editor -> Add Target -> Boradcast Upload Extension
+- 点击File -> New  -> Target -> iOS -> Boradcast Upload Extension
 ![配置](img/BoradcastUploadExtension.jpg)
 
 - 点击TARGETS -> General ->将YllGameChatSDK 拖至 Frameworks and Libraries
