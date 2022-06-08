@@ -7,7 +7,7 @@
 
 
 #import "SampleHandler.h"
-#import <YllGameChatSDK/YllGameChatSDK-Swift.h>
+#import <YllGameChatSDK/YllGameChatSDK.h>
 
 @interface SampleHandler()<YllGameChatDelegate>
 

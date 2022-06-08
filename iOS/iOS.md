@@ -7,7 +7,7 @@ SDK下载地址(请联系对接人获取)
 
 **需要安装cocoapods管理工具([参考](https://www.kancloud.cn/god-is-coder/cocoapods/617031))**
 
-**XCode13.0+, iOS10.0+**
+**XCode13.3+, iOS10.0+**
 
 **SDK不支持bitcode，项目请勿打开**
 
@@ -30,7 +30,7 @@ target 'XXX' do ///XXX代表主工程名
   pod 'SwiftProtobuf', '~> 1.17.0'
 end
 
-target 'SampleHander' do
+target 'SampleHander' do ///SampleHander代表屏幕录制Target,系统默认是SampleHander。若新建target修改了名称需要换成已经修改的新名称
   use_frameworks!
   pod 'AgoraRtcEngine_iOS','~> 3.7.0', :subspecs => ['RtcBasic', 'ReplayKit']
   pod 'SwiftProtobuf', '~> 1.17.0'
@@ -41,6 +41,7 @@ end
 - 去掉use_frameworks!前的#
 - 在工程的相对应的 `Targets` -> `Build Settings` 的 `Other Linker Flags` ，添加`$(inherited)`
 - 然后执行 pod install
+- 注意：若出现错误 [!] Unable to find a target named `SampleHander` in project `YGCGameChatDemo.xcodeproj`, did find `YGCGameChatDemo`. 请参考2.5.2步骤新建`SampleHander` Target
 
 ### 2.3 SDK所需权限设置
 - Privacy - Microphone Usage Description 麦克风权限
@@ -55,6 +56,7 @@ end
 
 ### 2.4 SDK后台播放功能设置
 ![配置](img/Signing&Capabilities1.jpg)
+![配置](img/addWIFIInfo.jpg)
 
 ### 2.5 SDK录屏直播功能设置
 - App Groups 配置账号由SDK方提供
@@ -63,8 +65,12 @@ end
 ![配置](img/Signing&Capabilities2.jpg)
 
 #### 2. 新建Target
-- 点击Editor -> Add Target -> Boradcast Upload Extension
+- 点击File -> New  -> Target -> iOS -> Boradcast Upload Extension ->Product Name(建议SampleHandler) -> Bundle Identifier(联系我们提供) -> Language(建议Objective-C语言)
 ![配置](img/BoradcastUploadExtension.jpg)
+![配置](img/addTarget.jpg)
+
+- 点击TARGETS -> General ->将YllGameChatSDK 拖至 Frameworks and Libraries
+![配置](img/addYllGameChatSDK.jpg)
 
 #### 3. 添加录屏直播功能相关代码([示例文件](https://github.com/yllgame2021/yllgame_chatsdk/tree/main/iOS/SampleHandler))
 ![配置](img/SampleHandler.jpg)
