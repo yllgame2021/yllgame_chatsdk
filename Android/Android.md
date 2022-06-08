@@ -219,6 +219,9 @@ android {
 -keep class com.yllgame.** { *; } 
 -dontwarn com.yllgame.*
 -keep interface com.yllgame.** { *; }
+-keep class com.yll.** { *; } 
+-dontwarn com.yll.*
+-keep interface com.yll.** { *; }
 -keepclassmembers enum * {
     public static **[] values();
     public static ** valueOf(java.lang.String);
