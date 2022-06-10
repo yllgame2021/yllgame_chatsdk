@@ -41,6 +41,7 @@ end
 - 去掉use_frameworks!前的#
 - 在工程的相对应的 `Targets` -> `Build Settings` 的 `Other Linker Flags` ，添加`$(inherited)`
 - 然后执行 pod install
+- 打开 [工程名].xcworkspace 文件
 - 注意：若出现错误 [!] Unable to find a target named `SampleHander` in project `YGCGameChatDemo.xcodeproj`, did find `YGCGameChatDemo`. 请参考2.5.2步骤新建`SampleHander` Target
 
 ### 2.3 SDK所需权限设置
