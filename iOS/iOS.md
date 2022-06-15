@@ -72,6 +72,8 @@ end
 
 - 点击TARGETS -> General ->将YllGameChatSDK 拖至 Frameworks and Libraries
 ![配置](img/addYllGameChatSDK.jpg)
+- SampleHandler Target配置AppGroup,参考图片中的步骤。
+![配置](img/addAppGroups.png)
 
 #### 3. 添加录屏直播功能相关代码([示例文件](https://github.com/yllgame2021/yllgame_chatsdk/tree/main/iOS/SampleHandler))
 ![配置](img/SampleHandler.jpg)
