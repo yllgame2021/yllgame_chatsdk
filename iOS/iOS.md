@@ -30,7 +30,7 @@ target 'XXX' do ///XXX代表主工程名
   pod 'SwiftProtobuf', '~> 1.17.0'
 end
 
-target 'SampleHander' do ///SampleHander代表屏幕录制Target,系统默认是SampleHander。若新建target修改了名称需要换成已经修改的新名称
+target 'SampleHandler' do ///SampleHandler代表屏幕录制Target,系统默认是SampleHandler。若新建target修改了名称需要换成已经修改的新名称
   use_frameworks!
   pod 'AgoraRtcEngine_iOS','~> 3.7.0', :subspecs => ['RtcBasic', 'ReplayKit']
   pod 'SwiftProtobuf', '~> 1.17.0'
