@@ -166,6 +166,8 @@ end
 - (void)ygc_notifyChangeMic:(YGChatNotifyChangeMicModel * _Nonnull)model;
 /// 联盟房间拥有者改变
 - (void)ygc_notifyUnionRoomOwnerChange:(YGRoomChangeUnionRoomOwner * _Nonnull)model;;
+/// 观众是否正在观看直播
+- (void)ygc_notifyAudienceWatchingLiveWithWatching:(BOOL)watching;;
 ```
 
 ### 3.3 退出房间
