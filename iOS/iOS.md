@@ -486,7 +486,7 @@ end
 /// 开始/关闭直播
 /// @param broadcastName 创建的broadcat upload Extension 的名字
 /// @param completionHandler 操作结果回调
-[[YllGameChatSDK getInstance] ygc_roomOpenLiveWithBroadcastName:<#(nonnull NSString *)#> completionHandler:<#^(YGC_CHAT_STATE state, int32_t errorCode)completionHandler#>];
+[[YllGameChatSDK getInstance] ygc_roomOpenLiveWithBroadcastName:<#(nonnull NSString *)#> completionHandler:<#^(YGC_CHAT_STATE state, int32_t errorCode, BOOL isOpenLive)completionHandler#>];
 ```
 
 - 观看直播
