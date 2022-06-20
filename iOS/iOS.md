@@ -523,7 +523,7 @@ end
 /// 注: 只在Extension SampleHandler 里面调用
 [[YllGameChatSDK getInstance] ygc_finishedBroadcast];
 ```
-### 3.42 房间麦序切换
+### 3.43 房间麦序切换
 - 房间麦序切换
 ```obj-c
 /// 房间麦序切换
