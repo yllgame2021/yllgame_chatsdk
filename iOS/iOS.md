@@ -30,7 +30,7 @@ target 'XXX' do ///XXX代表主工程名
   pod 'SwiftProtobuf', '~> 1.17.0'
 end
 
-target 'SampleHander' do ///SampleHander代表屏幕录制Target,系统默认是SampleHander。若新建target修改了名称需要换成已经修改的新名称
+target 'SampleHandler' do ///SampleHandler代表屏幕录制Target,系统默认是SampleHandler。若新建target修改了名称需要换成已经修改的新名称
   use_frameworks!
   pod 'AgoraRtcEngine_iOS','~> 3.7.0', :subspecs => ['RtcBasic', 'ReplayKit']
   pod 'SwiftProtobuf', '~> 1.17.0'
@@ -41,7 +41,8 @@ end
 - 去掉use_frameworks!前的#
 - 在工程的相对应的 `Targets` -> `Build Settings` 的 `Other Linker Flags` ，添加`$(inherited)`
 - 然后执行 pod install
-- 注意：若出现错误 [!] Unable to find a target named `SampleHander` in project `YGCGameChatDemo.xcodeproj`, did find `YGCGameChatDemo`. 请参考2.5.2步骤新建`SampleHander` Target
+- 打开 [工程名].xcworkspace 文件
+- 注意：若出现错误 [!] Unable to find a target named `SampleHandler` in project `YGCGameChatDemo.xcodeproj`, did find `YGCGameChatDemo`. 请参考2.5.2步骤新建`SampleHandler` Target
 
 ### 2.3 SDK所需权限设置
 - Privacy - Microphone Usage Description 麦克风权限
@@ -71,6 +72,8 @@ end
 
 - 点击TARGETS -> General ->将YllGameChatSDK 拖至 Frameworks and Libraries
 ![配置](img/addYllGameChatSDK.jpg)
+- SampleHandler Target配置AppGroup,参考图片中的步骤。
+![配置](img/addAppGroups1.png)
 
 #### 3. 添加录屏直播功能相关代码([示例文件](https://github.com/yllgame2021/yllgame_chatsdk/tree/main/iOS/SampleHandler))
 ![配置](img/SampleHandler.jpg)
@@ -163,6 +166,8 @@ end
 - (void)ygc_notifyChangeMic:(YGChatNotifyChangeMicModel * _Nonnull)model;
 /// 联盟房间拥有者改变
 - (void)ygc_notifyUnionRoomOwnerChange:(YGRoomChangeUnionRoomOwner * _Nonnull)model;;
+/// 观众是否正在观看直播
+- (void)ygc_notifyAudienceWatchingLiveWithWatching:(BOOL)watching;;
 ```
 
 ### 3.3 退出房间
@@ -481,7 +486,7 @@ end
 /// 开始/关闭直播
 /// @param broadcastName 创建的broadcat upload Extension 的名字
 /// @param completionHandler 操作结果回调
-[[YllGameChatSDK getInstance] ygc_roomOpenLiveWithBroadcastName:<#(nonnull NSString *)#> completionHandler:<#^(YGC_CHAT_STATE state, int32_t errorCode)completionHandler#>];
+[[YllGameChatSDK getInstance] ygc_roomOpenLiveWithBroadcastName:<#(nonnull NSString *)#> completionHandler:<#^(YGC_CHAT_STATE state, int32_t errorCode, BOOL isOpenLive)completionHandler#>];
 ```
 
 - 观看直播
@@ -518,7 +523,7 @@ end
 /// 注: 只在Extension SampleHandler 里面调用
 [[YllGameChatSDK getInstance] ygc_finishedBroadcast];
 ```
-### 3.42 房间麦序切换
+### 3.43 房间麦序切换
 - 房间麦序切换
 ```obj-c
 /// 房间麦序切换
