@@ -420,6 +420,12 @@ android {
      */
     fun notifyAudienceWatchingLive(watching: Boolean)
 
+    /**
+     * 用户点击通知栏语聊房通知 
+     * 需要在这里实现打开语聊房逻辑
+     */
+    fun notifyOpenChatRoom()
+
  ```
   - 示例：``` YllGameChatSdk.INSTANCE.loginRoom(); ```
   ### 2.2登出房间
