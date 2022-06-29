@@ -235,6 +235,7 @@ android {
  ### 申请麦克风权限
  ``` java 
      //权限start
+     //先获取麦克风权限再上麦
     private final int PERMISSION_REQ_ID = 22;
     private final String[] REQUESTED_PERMISSIONS = {Manifest.permission.RECORD_AUDIO};
     //检查权限
@@ -254,7 +255,7 @@ android {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_REQ_ID) {
             if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                startLoginRoom();
+                //已授予麦克风权限
             } else {
                 //上麦 一系列麦克风操作需要权限
                 Log.d("权限申请", "用户拒绝授权权限");
