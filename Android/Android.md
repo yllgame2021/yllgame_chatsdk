@@ -96,6 +96,7 @@
     - [3.36 改变联盟房房主通知模型](#336-改变联盟房房主通知模型)
     - [3.37 活动模型](#337-活动模型)
     - [3.38 礼物模型](#338-礼物模型)
+    - [3.39 初始化配置](#339-初始化配置)
   - [4. Code表](#4-code表)
   - [5.问题解决](#5问题解决)
     - [5.1 鬼麦问题](#51-鬼麦问题)
@@ -1337,6 +1338,29 @@ data class YGChatGiftViewEntity(
         const val GIFT_NORMAL_ALL = 2;    //全站礼物
     }
 }
+```
+### 3.39 初始化配置
+```
+    /**
+     * 初始化配置
+     * agoraAppId 声网 AppId
+     * zegoAppId 即构 AppId
+     * userId: Long 游戏角色id
+     * token: String 当前角色token
+     * language: Int 当前游戏语言 YGChatLanguageCode.ENGLISH英语 YGChatLanguageCode.ARABIC 阿语
+     * roomId: Long 房间id
+     * password: String 房间密码 没有则传""
+     */
+    data class ConfigEntity(
+        var gameAppId: String,
+        var agoraAppId: String,
+        var zegoAppId: String,
+        var userId: Long,
+        var token: String,
+        var language: Int,
+        var roomId: Long,
+        var password: String
+    )
 ```
 ## 4. Code表
 ```Kotlin
