@@ -27,12 +27,14 @@ SDK下载地址(请联系对接人获取)
 target 'XXX' do ///XXX代表主工程名
   #pod 'AgoraAudio_iOS', '~> 3.5.0.3' /// SDKv1.0.2 替换为 AgoraRtcEngine_iOS
   pod 'AgoraRtcEngine_iOS','~> 3.7.0', :subspecs => ['RtcBasic', 'ReplayKit']
+  pod 'ZegoExpressEngine', '~> 2.20.0'
   pod 'SwiftProtobuf', '~> 1.17.0'
 end
 
 target 'SampleHandler' do ///SampleHandler代表屏幕录制Target,系统默认是SampleHandler。若新建target修改了名称需要换成已经修改的新名称
   use_frameworks!
   pod 'AgoraRtcEngine_iOS','~> 3.7.0', :subspecs => ['RtcBasic', 'ReplayKit']
+  pod 'ZegoExpressEngine', '~> 2.20.0'
   pod 'SwiftProtobuf', '~> 1.17.0'
 end
 
@@ -138,14 +140,14 @@ end
 /// 房间信息变更
 - (void)ygc_notifyRoomInfoChange:(YGChatNotifyRoomInfoChangeModel * _Nonnull)model;
 /// 播放设备变更
-- (void)ygc_didAudioRouteChanged:(AgoraRtcEngineKit * _Nonnull)engine routing:(AgoraAudioOutputRouting)routing;
+'~~'- (void)ygc_didAudioRouteChanged:(AgoraRtcEngineKit * _Nonnull)engine routing:(AgoraAudioOutputRouting)routing;
 /// 用户音量提示回调
 /// @param speakers    用户音量信息，如果 speakers 为空，则表示远端用户不发流或没有远端用户。
 /// @param totalVolume 混音后的总音量，取值范围为 [0,255], 在本地用户的回调中，totalVolume 为本地发流用户的音量, 在远端用户的回调中，totalVolume 为瞬时音量最高的远端用户（最多 3 位）混音后的总音量。
-- (void)ygc_reportAudioVolumeIndication:(AgoraRtcEngineKit * _Nonnull)engine speakers:(NSArray<AgoraRtcAudioVolumeInfo *> * _Nonnull)speakers totalVolume:(int64_t)totalVolume;
+'~~'- (void)ygc_reportAudioVolumeIndication:(AgoraRtcEngineKit * _Nonnull)engine speakers:(NSArray<AgoraRtcAudioVolumeInfo *> * _Nonnull)speakers totalVolume:(int64_t)totalVolume;
 /// 发生错误回调, 该函数的主要目的是为了App可以根据errorCode的值做一些对应的可视化的提示
 /// 比如启动通话失败时，会上报 CODE_AGORAStartCall = 1002 错误。App可以提示用户启动通话失败。
-- (void)ygc_audioErrorWithErrorCode:(AgoraErrorCode)errorCode;
+'~~'- (void)ygc_audioErrorWithErrorCode:(AgoraErrorCode)errorCode;
 /// socket 状态更改
 - (void)ygc_onConnectionChange:(YGC_SOCKET_STATE)state;
 ```
@@ -168,6 +170,18 @@ end
 - (void)ygc_notifyUnionRoomOwnerChange:(YGRoomChangeUnionRoomOwner * _Nonnull)model;;
 /// 观众是否正在观看直播
 - (void)ygc_notifyAudienceWatchingLiveWithWatching:(BOOL)watching;;
+```
+- SDK v1.0.3 修改代理
+ ```obj-c
+/// 播放设备变更
+- (void)ygc_didAudioRouteChanged:(YGCMediaAudioOutputRouting)routing;
+/// 用户音量提示回调
+/// @param speakers    用户音量信息，如果 speakers 为空，则表示远端用户不发流或没有远端用户。
+/// @param totalVolume 混音后的总音量，取值范围为 [0,255], 在本地用户的回调中，totalVolume 为本地发流用户的音量, 在远端用户的回调中，totalVolume 为瞬时音量最高的远端用户（最多 3 位）混音后的总音量。
+- (void)ygc_reportAudioVolumeIndicationWithSpeakers:(NSArray<YGCMediaAudioVolumeInfo *> * _Nonnull)speakers totalVolume:(int64_t)totalVolume;
+/// 发生错误回调, 该函数的主要目的是为了App可以根据errorCode的值做一些对应的可视化的提示
+/// 比如启动通话失败时，会上报 CODE_AGORAStartCall = 1002 错误。App可以提示用户启动通话失败。
+- (void)ygc_audioErrorWithErrorCode:(YGCMediaErrorCode)errorCode;
 ```
 
 ### 3.3 退出房间
