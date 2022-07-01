@@ -39,6 +39,9 @@ target 'SampleHandler' do ///SampleHandler代表屏幕录制Target,系统默认�
 end
 
 ```
+#### 3. 在依赖YllGameChatSDK的Targets中添加ZegoSampleBufferConverter.framework,详情如下
+![配置](img/ZegoSampleBufferConverter.jpg)
+
 
 - 去掉use_frameworks!前的#
 - 在工程的相对应的 `Targets` -> `Build Settings` 的 `Other Linker Flags` ，添加`$(inherited)`
@@ -100,6 +103,11 @@ end
 /// @param completionHandler 操作结果回调
 [[YllGameChatSDK getInstance] ygc_loginWithWebSocketURL:<#(nonnull NSString *)#> config:<#(YllGameChatConfig * _Nonnull)#> delegate:<#(nonnull id)#> completionHandler:<#^(YGC_CHAT_STATE state, YGChatLogInResModel * _Nullable model, int32_t errorCode)completionHandler#>];
 ```
+- Config 需要分别配置声网和Zego的AppId
+```obj-c
+    config.zegoAppId = "XXXXX";
+    config.gameAppId = "XXXXX";
+```
 
 - 遵循代理 YllGameChatDelegate，实现代理方法
 ```obj-c
@@ -140,14 +148,14 @@ end
 /// 房间信息变更
 - (void)ygc_notifyRoomInfoChange:(YGChatNotifyRoomInfoChangeModel * _Nonnull)model;
 /// 播放设备变更
-***- (void)ygc_didAudioRouteChanged:(AgoraRtcEngineKit * _Nonnull)engine routing:(AgoraAudioOutputRouting)routing;***
+~~- (void)ygc_didAudioRouteChanged:(AgoraRtcEngineKit * _Nonnull)engine routing:(AgoraAudioOutputRouting)routing;~~
 /// 用户音量提示回调
 /// @param speakers    用户音量信息，如果 speakers 为空，则表示远端用户不发流或没有远端用户。
 /// @param totalVolume 混音后的总音量，取值范围为 [0,255], 在本地用户的回调中，totalVolume 为本地发流用户的音量, 在远端用户的回调中，totalVolume 为瞬时音量最高的远端用户（最多 3 位）混音后的总音量。
-***- (void)ygc_reportAudioVolumeIndication:(AgoraRtcEngineKit * _Nonnull)engine speakers:(NSArray<AgoraRtcAudioVolumeInfo *> * _Nonnull)speakers totalVolume:(int64_t)totalVolume;***
+~~- (void)ygc_reportAudioVolumeIndication:(AgoraRtcEngineKit * _Nonnull)engine speakers:(NSArray<AgoraRtcAudioVolumeInfo *> * _Nonnull)speakers totalVolume:(int64_t)totalVolume;~~
 /// 发生错误回调, 该函数的主要目的是为了App可以根据errorCode的值做一些对应的可视化的提示
 /// 比如启动通话失败时，会上报 CODE_AGORAStartCall = 1002 错误。App可以提示用户启动通话失败。
-***- (void)ygc_audioErrorWithErrorCode:(AgoraErrorCode)errorCode;***
+~~- (void)ygc_audioErrorWithErrorCode:(AgoraErrorCode)errorCode;~~
 /// socket 状态更改
 - (void)ygc_onConnectionChange:(YGC_SOCKET_STATE)state;
 ```
