@@ -337,7 +337,7 @@ end
 ### 3.20 房间上麦模式变更
 ```obj-c
 /// 房间上麦模式变更
-/// @param type 上麦模式 0自由上麦，1邀请上麦
+/// @param type 上麦模式 1自由上麦，2邀请上麦
 /// @param completionHandler 操作结果回调
 [[YllGameChatSDK getInstance] ygc_changeRoomMicUpTypeWithType:<#(int32_t)#> completionHandler:<#^(YGC_CHAT_STATE state, YGChatChangeRoomMicUpTypeResModel * _Nullable model, int32_t errorCode)completionHandler#>];
 ```
