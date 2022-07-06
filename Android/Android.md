@@ -49,11 +49,11 @@
     - [2.35取消或恢复订阅指定远端用户的音频流](#235取消或恢复订阅指定远端用户的音频流)
     - [2.36 获取当前聊天室信息](#236-获取当前聊天室信息)
     - [2.37 房间背景音乐](#237-房间背景音乐)
-    - [2.37 发送图片消息](#237-发送图片消息)
-    - [2.38 开播](#238-开播)
-    - [2.39 关播](#239-关播)
-    - [2.40 观看直播](#240-观看直播)
-    - [2.41 房间麦序切换](#241-房间麦序切换)
+    - [2.38 发送图片消息](#238-发送图片消息)
+    - [2.39 开播](#239-开播)
+    - [2.40 关播](#240-关播)
+    - [2.41 观看直播](#241-观看直播)
+    - [2.42 房间麦序切换](#242-房间麦序切换)
   - [3 数据模型](#3-数据模型)
     - [3.1 用户模型](#31-用户模型)
     - [3.2 房间模型](#32-房间模型)
@@ -856,7 +856,7 @@ android {
     fun showMusicPlayerDialog(context: Context)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.showMusicPlayerDialog(); ```
-  ### 2.37 发送图片消息
+  ### 2.38 发送图片消息
   ``` kotlin
    /**
      * 发送图片消息
@@ -866,7 +866,7 @@ android {
     fun sayImage(imageUrl: String, ygChatCallback: YGChatCallback<YGChatSendImageEntity>) 
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.sayImage(); ```
-### 2.38 开播
+### 2.39 开播
   ``` kotlin
     /**
      * 开启录屏
@@ -875,7 +875,7 @@ android {
     fun roomOpenLive(ygChatCallback: YGChatCallback<Unit>)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.roomOpenLive(); ```
-### 2.39 关播
+### 2.40 关播
   ``` kotlin
     /**
      * 关闭录屏
@@ -884,7 +884,7 @@ android {
     fun roomCloseLive(ygChatCallback: YGChatCallback<Unit>)
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.roomCloseLive(); ```
-### 2.40 观看直播
+### 2.41 观看直播
   ``` kotlin
     /**
      * 观看直播
@@ -894,7 +894,7 @@ android {
  ```
  - 示例：``` YllGameChatSdk.INSTANCE.roomPlayLive(); ```
 
-### 2.41 房间麦序切换
+### 2.42 房间麦序切换
 ```kotlin
 /**
   * 房间麦序切换
