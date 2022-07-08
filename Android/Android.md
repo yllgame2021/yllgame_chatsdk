@@ -142,7 +142,7 @@
  annotationProcessor "androidx.room:room-compiler:2.2.5"
  implementation "androidx.room:room-ktx:2.2.5"
  //zego
- implementation 'com.github.zegolibrary:express-video:2.19.0'
+ implementation 'com.github.zegolibrary:express-video:2.20.2'
  ```
  ### 1.2 添加插件依赖
  在主工程根目录下的build.gradle内buildScript内添加
