@@ -81,7 +81,7 @@ end
 ![配置](img/addAppGroups1.png)
 
 #### 3. 添加录屏直播功能相关代码([示例文件](https://github.com/yllgame2021/yllgame_chatsdk/tree/main/iOS/SampleHandler))
-![配置](img/SampleHandler.jpg)
+![配置](img/SampleHandler1.jpg)
 
 ## 3. SDK初始化与API接口
 
