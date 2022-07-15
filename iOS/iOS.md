@@ -180,7 +180,7 @@ end
 /// 观众是否正在观看直播
 - (void)ygc_notifyAudienceWatchingLiveWithWatching:(BOOL)watching;;
 ```
-- SDK v1.0.3 变更为如下内容
+- SDK v1.0.3 变更代理
 - ygc_didAudioRouteChanged 
 - ygc_reportAudioVolumeIndication 
 - ygc_audioErrorWithErrorCode 
