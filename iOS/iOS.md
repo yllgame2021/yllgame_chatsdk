@@ -180,10 +180,10 @@ end
 /// 观众是否正在观看直播
 - (void)ygc_notifyAudienceWatchingLiveWithWatching:(BOOL)watching;;
 ```
-- SDK v1.0.3 修改代理 变更为如下内容
-- ygc_didAudioRouteChanged
-- ygc_reportAudioVolumeIndication
-- ygc_audioErrorWithErrorCode
+- SDK v1.0.3 变更为如下内容
+- ygc_didAudioRouteChanged 
+- ygc_reportAudioVolumeIndication 
+- ygc_audioErrorWithErrorCode 
 - ygc_broadcastFinished(reason: YGC_REPLAY_REASON)
  ```obj-c
 /// 播放设备变更
@@ -197,6 +197,15 @@ end
 - (void)ygc_audioErrorWithErrorCode:(YGCMediaErrorCode)errorCode;
 ///SampleHandler的直播回调
 -(void)ygc_broadcastFinishedWithReason:(YGC_REPLAY_REASON)reason error:(NSError *)error;
+```
+- SDK v1.0.3 新增代理
+ ```obj-c
+/// 远端主播离线
+///注: 作用:该方法是应对远端主播网络断开时，观众没有长时间没有响应的问题。观看端收到该消息之后根据uid找到麦上主播 重置开播标记。
+- (void)ygc_notifyRemoteAnchorOffLineWithUid:(NSUInteger)uid;
+/// 通知开播主播的状态，声网SDK下 主播开播熄屏断开直播时返回
+/// 注: 作用:该方法是应对iOS端主播使用声网开播时，熄屏推流断开，开播状态没有同步的问题。isOpenLive == true代表主播开播，isOpenLive == false代表主播关播，收到该通知之后需要游戏端同步开播状态。
+- (void)ygc_notifyScreenOffAnchorLiveWithIsOpenLive:(BOOL)isOpenLive;
 ```
 
 ### 3.3 退出房间
@@ -562,3 +571,15 @@ end
 /// @param completionHandler 操作结果回调
 [[YllGameChatSDK getInstance] ygc_changeMicWithOldMicOrder:<#(int32_t)#> newMicOrder:<#(int32_t)#> completionHandler:<#^(YGC_CHAT_STATE state, YGChatChangeMicResModel * _Nullable model, int32_t errorCode)completionHandler#>];
 ```
+### 3.44 获取当前房间的麦位列表
+- 获取当前房间的麦位列表
+```obj-c
+/// 房间麦序切换
+/// @param userId 用户ID
+/// @param roomId 当前房间ID
+/// @param completionHandler 操作结果回调
+///注: 该方法是应对断线重连时麦上信息没有同步的问题，接入时机是在房间内收到断线重连时调用该方法
+[[YllGameChatSDK getInstance] ygc_loadMicListWithUserId:<#(int32_t)#> roomId:<#(int32_t)#> completionHandler:<#^(YGC_CHAT_STATE state, YGChatLoadMicListResModel * _Nullable model, int32_t errorCode)completionHandler#>];
+```
+
+
