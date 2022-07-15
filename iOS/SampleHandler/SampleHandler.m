@@ -18,7 +18,8 @@
 
 - (void)broadcastStartedWithSetupInfo:(NSDictionary<NSString *,NSObject *> *)setupInfo {
     // User has requested to start the broadcast. Setup info from the UI extension can be supplied but optional.
-    [[YllGameChatSDK getInstance] ygc_startBroadcastWithDelegate:self];
+    XXXX表示的是AppGroups的BundleID,请联系我们获取
+     [[YllGameChatSDK getInstance] ygc_startBroadcastWithDelegate:self withAppGroups:@"XXXX"];
 }
 
 - (void)broadcastPaused {
@@ -40,20 +41,8 @@
     [[YllGameChatSDK getInstance] ygc_sendBufferWithBuffer:sampleBuffer bufferType:sampleBufferType];
 }
 
-- (void)ygc_broadcastFinishedWithReason:(YGC_REPLAY_REASON)reason {
-    switch (reason) {
-        case CONNECT_FAILED:
-            [self finishBroadcastWithError:[[NSError alloc] initWithDomain:@"" code:0 userInfo:nil]];
-            break;
-        case DISCONNECT:
-            [self finishBroadcastWithError:[[NSError alloc] initWithDomain:@"" code:0 userInfo:nil]];
-            break;
-        case INITIATIVE_STOP:
-            [self finishBroadcastWithError:[[NSError alloc] initWithDomain:@"" code:0 userInfo:nil]];
-            break;
-        default:
-            break;
-    }
+-(void)ygc_broadcastFinishedWithReason:(YGC_REPLAY_REASON)reason error:(NSError *)error{
+    [self finishBroadcastWithError:error];
 }
 
 @end

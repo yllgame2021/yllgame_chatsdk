@@ -81,7 +81,7 @@ end
 ![配置](img/addAppGroups1.png)
 
 #### 3. 添加录屏直播功能相关代码([示例文件](https://github.com/yllgame2021/yllgame_chatsdk/tree/main/iOS/SampleHandler))
-![配置](img/SampleHandler.jpg)
+![配置](img/SampleHandler1.jpg)
 
 ## 3. SDK初始化与API接口
 
@@ -107,6 +107,7 @@ end
 ```obj-c
     config.zegoAppId = "XXXXX";
     config.gameAppId = "XXXXX";
+    config.appGroups = "XXXXX"; //该配置是App Groups对应的Bundle ID，需要联系我们获取
 ```
 
 - 遵循代理 YllGameChatDelegate，实现代理方法
@@ -183,7 +184,7 @@ end
 - ygc_didAudioRouteChanged
 - ygc_reportAudioVolumeIndication
 - ygc_audioErrorWithErrorCode
-
+- ygc_broadcastFinished(reason: YGC_REPLAY_REASON)
  ```obj-c
 /// 播放设备变更
 - (void)ygc_didAudioRouteChanged:(YGCMediaAudioOutputRouting)routing;
@@ -194,6 +195,8 @@ end
 /// 发生错误回调, 该函数的主要目的是为了App可以根据errorCode的值做一些对应的可视化的提示
 /// 比如启动通话失败时
 - (void)ygc_audioErrorWithErrorCode:(YGCMediaErrorCode)errorCode;
+///SampleHandler的直播回调
+-(void)ygc_broadcastFinishedWithReason:(YGC_REPLAY_REASON)reason error:(NSError *)error;
 ```
 
 ### 3.3 退出房间
@@ -525,8 +528,9 @@ end
 ```obj-c
 /// 开始广播
 /// @param delegate 代理协议 (YllGameChatDelegate)
+/// @param appGroups 需要联系我们获取
 /// 注: 只在Extension SampleHandler 里面调用
-[[YllGameChatSDK getInstance] ygc_startBroadcastWithDelegate:<#(nonnull id)#>];
+[[YllGameChatSDK getInstance] ygc_startBroadcastWithDelegate:<#(nonnull id)#> withAppGroups:<#(nonnull NSString *)#>];
 ```
 
 - 暂停广播
