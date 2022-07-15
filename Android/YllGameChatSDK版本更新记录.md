@@ -4,6 +4,9 @@
  2. 新增Zego服务、登录房间新增即构AppId
  3. 新增忽略电池优化权限申请、增强语聊保活能力
  4. 新增语聊服务切换通知
+ 5. 新增更新麦位列表接口loadMicList
+ 6. 新增主播离线通知notifyRemoteAnchorOffLine
+ 7. 新增息屏情况下主播是否在直播通知notifyScreenOffAnchorLive
 - v1.0.2
  1. 语聊房麦位切换
  2. 联盟房权限变更状态通知

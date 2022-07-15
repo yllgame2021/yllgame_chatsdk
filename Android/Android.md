@@ -96,6 +96,7 @@
     - [3.36 改变联盟房房主通知模型](#336-改变联盟房房主通知模型)
     - [3.37 活动模型](#337-活动模型)
     - [3.38 礼物模型](#338-礼物模型)
+    - [3.39 更新麦位列表](#339-更新麦位列表)
     - [3.39 初始化配置](#339-初始化配置)
   - [4. Code表](#4-code表)
   - [5.问题解决](#5问题解决)
@@ -427,7 +428,18 @@ android {
      * 需要在这里实现打开语聊房逻辑
      */
     fun notifyOpenChatRoom()
+    
+    /**
+     * 远端主播离线
+     * @param uid Int 主播用户Id
+     */
+    fun notifyRemoteAnchorOffLine(uid: Long)
 
+    /**
+     * 息屏状态下开播主播的状态
+     * @param isOpenLive true 在开播 false 关播
+     */
+    fun notifyScreenOffAnchorLive(isOpenLive: Boolean)
  ```
   - 示例：``` YllGameChatSdk.INSTANCE.loginRoom(); ```
   ### 2.2登出房间
@@ -1338,6 +1350,20 @@ data class YGChatGiftViewEntity(
         const val GIFT_NORMAL_ALL = 2;    //全站礼物
     }
 }
+```
+### 3.39 更新麦位列表
+```
+   /**
+     * 更新麦位列表
+     * @param userId Long
+     * @param roomId Int
+     * @param ygChatCallback YGChatCallback<Int>
+     */
+    fun loadMicList(
+        userId: Long,
+        roomId: Long,
+        ygChatCallback: YGChatCallback<YGChatLoadMicResEntity>
+    ) 
 ```
 ### 3.39 初始化配置
 ```
