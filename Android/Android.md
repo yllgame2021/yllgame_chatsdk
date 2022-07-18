@@ -98,6 +98,7 @@
     - [3.38 礼物模型](#338-礼物模型)
     - [3.39 更新麦位列表](#339-更新麦位列表)
     - [3.39 初始化配置](#339-初始化配置)
+    - [3.40 更新麦位列表](#340-更新麦位列表)
   - [4. Code表](#4-code表)
   - [5.问题解决](#5问题解决)
     - [5.1 鬼麦问题](#51-鬼麦问题)
@@ -1388,6 +1389,19 @@ data class YGChatGiftViewEntity(
         var roomId: Long,
         var password: String
     )
+```
+### 3.40 更新麦位列表
+```
+data class YGChatLoadMicResEntity(
+    /**
+     * 麦位列表
+     */
+    var mics: List<YGChatUserMicInfoEntity>,
+    /**
+     * 被锁住的麦序列表
+     */
+    var micLockedList: List<Int>,
+)
 ```
 ## 4. Code表
 ```Kotlin
