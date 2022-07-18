@@ -7,6 +7,7 @@
  5. 新增更新麦位列表接口loadMicList
  6. 新增主播离线通知notifyRemoteAnchorOffLine
  7. 新增息屏情况下主播是否在直播通知notifyScreenOffAnchorLive
+ 8. 新增即构混淆配置
 - v1.0.2
  1. 语聊房麦位切换
  2. 联盟房权限变更状态通知

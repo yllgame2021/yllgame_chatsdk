@@ -232,6 +232,7 @@ android {
     public static **[] values();
     public static ** valueOf(java.lang.String);
 }
+-keep class **.zego.**{*;}
  ```
  ## 2.接入SDK
  ### 申请麦克风权限
