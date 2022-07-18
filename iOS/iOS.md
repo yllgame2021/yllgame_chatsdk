@@ -103,7 +103,7 @@ end
 /// @param completionHandler 操作结果回调
 [[YllGameChatSDK getInstance] ygc_loginWithWebSocketURL:<#(nonnull NSString *)#> config:<#(YllGameChatConfig * _Nonnull)#> delegate:<#(nonnull id)#> completionHandler:<#^(YGC_CHAT_STATE state, YGChatLogInResModel * _Nullable model, int32_t errorCode)completionHandler#>];
 ```
-- Config 需要分别配置声网和Zego的AppId
+- Config 需要分别配置声网和Zego的AppId、appGroups
 ```obj-c
     config.zegoAppId = "XXXXX";
     config.gameAppId = "XXXXX";
