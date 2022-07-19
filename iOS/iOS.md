@@ -149,14 +149,14 @@ end
 /// 房间信息变更
 - (void)ygc_notifyRoomInfoChange:(YGChatNotifyRoomInfoChangeModel * _Nonnull)model;
 /// 播放设备变更
-~~- (void)ygc_didAudioRouteChanged:(AgoraRtcEngineKit * _Nonnull)engine routing:(AgoraAudioOutputRouting)routing;~~
+- (void)ygc_didAudioRouteChanged:(YGCMediaAudioOutputRouting)routing;
 /// 用户音量提示回调
 /// @param speakers    用户音量信息，如果 speakers 为空，则表示远端用户不发流或没有远端用户。
 /// @param totalVolume 混音后的总音量，取值范围为 [0,255], 在本地用户的回调中，totalVolume 为本地发流用户的音量, 在远端用户的回调中，totalVolume 为瞬时音量最高的远端用户（最多 3 位）混音后的总音量。
-~~- (void)ygc_reportAudioVolumeIndication:(AgoraRtcEngineKit * _Nonnull)engine speakers:(NSArray<AgoraRtcAudioVolumeInfo *> * _Nonnull)speakers totalVolume:(int64_t)totalVolume;~~
+- (void)ygc_reportAudioVolumeIndicationWithSpeakers:(NSArray<YGCMediaAudioVolumeInfo *> * _Nonnull)speakers totalVolume:(int64_t)totalVolume;
 /// 发生错误回调, 该函数的主要目的是为了App可以根据errorCode的值做一些对应的可视化的提示
 /// 比如启动通话失败时，会上报 CODE_AGORAStartCall = 1002 错误。App可以提示用户启动通话失败。
-~~- (void)ygc_audioErrorWithErrorCode:(AgoraErrorCode)errorCode;~~
+- (void)ygc_audioErrorWithErrorCode:(YGCMediaErrorCode)errorCode;
 /// socket 状态更改
 - (void)ygc_onConnectionChange:(YGC_SOCKET_STATE)state;
 ```
