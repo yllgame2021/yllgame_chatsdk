@@ -26,14 +26,14 @@ SDK下载地址(请联系对接人获取)
 ```obj-c
 target 'XXX' do ///XXX代表主工程名
   #pod 'AgoraAudio_iOS', '~> 3.5.0.3' /// SDKv1.0.2 替换为 AgoraRtcEngine_iOS
-  pod 'AgoraRtcEngine_iOS','~> 3.7.0', :subspecs => ['RtcBasic', 'ReplayKit']
+  pod 'AgoraRtcEngine_iOS','~> 3.7.0.3', :subspecs => ['RtcBasic', 'ReplayKit']
   pod 'ZegoExpressEngine', '~> 2.20.2'
   pod 'SwiftProtobuf', '~> 1.17.0'
 end
 
 target 'SampleHandler' do ///SampleHandler代表屏幕录制Target,系统默认是SampleHandler。若新建target修改了名称需要换成已经修改的新名称
   use_frameworks!
-  pod 'AgoraRtcEngine_iOS','~> 3.7.0', :subspecs => ['RtcBasic', 'ReplayKit']
+  pod 'AgoraRtcEngine_iOS','~> 3.7.0.3', :subspecs => ['RtcBasic', 'ReplayKit']
   pod 'ZegoExpressEngine', '~> 2.20.2'
   pod 'SwiftProtobuf', '~> 1.17.0'
 end
